@@ -1,0 +1,9 @@
+{
+  "range": { "min": -20, "max": 140 },
+  "display": { "format": "0.00", "suffix": "°C" },
+  "styles": {
+    "bg": "#1A1A1A",
+    "fg": "#FFB300",
+    "accent": "#303030"
+  }
+}

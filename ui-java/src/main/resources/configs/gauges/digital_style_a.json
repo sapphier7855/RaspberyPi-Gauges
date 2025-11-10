@@ -1,0 +1,9 @@
+{
+  "range": { "min": 0, "max": 140 },
+  "display": { "history": 240 },
+  "styles": {
+    "bg": "#0B0D12",
+    "grid": "#223",
+    "line": "#00B2FF"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "range": { "min": 0, "max": 8000 },
+  "display": { "title": "RPM", "format": "0", "suffix": "" },
+  "styles": {
+    "bg": "#0D0F14",
+    "title": "#9AA4B2",
+    "value": "#28E0A6",
+    "ring": { "bg": "#1B2230", "fg": "#28E0A6" }
+  }
+}
+
+

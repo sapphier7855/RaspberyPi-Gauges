@@ -1,0 +1,29 @@
+{
+  "dashboard": {
+    "displays": [
+      {
+        "type": "gauges.ui.gauges.RollingGauge",
+        "config": "configs/gauges/rolling_style_b.json",
+        "bind": "current.value",
+        "x": 40,  "y": 40,  "w": 640, "h": 260
+      },
+      {
+        "type": "gauges.ui.gauges.CenterTextGauge",
+        "config": "configs/gauges/center_style_b.json",
+        "bind": "current.value",
+        "x": 700, "y": 40,  "w": 480, "h": 260
+      }
+    ]
+  },
+  "single_gauge": {
+    "displays": [
+      {
+        "type": "gauges.ui.gauges.NoTextGaugeDigital",
+        "config": "configs/gauges/digital_style_b.json",
+        "bind": "current.value"
+      }
+    ]
+  }
+}
+
+

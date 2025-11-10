@@ -1,0 +1,14 @@
+{
+  "dashboard": {
+    "displays": [
+      { "type": "gauges.ui.gauges.RollingGauge",       "config": "configs/gauges/demo.json",   "bind": "demo.random", "x": 40, "y": 40, "w": 560, "h": 240 },
+      { "type": "gauges.displays.SparklineTextDisplay","config": "configs/gauges/fps.json",    "bind": "system.fps",  "x": 40, "y": 300,"w": 560, "h": 120 }
+    ]
+  },
+  "single_gauge": {
+    "displays": [
+      { "type": "gauges.NoTextGaugeDigital", "config": "configs/gauges/rpm_digital.json", "bind": "engine.rpm", "x": 60, "y": 60, "w": 520, "h": 520 }
+    ]
+  }
+}
+

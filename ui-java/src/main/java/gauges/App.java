@@ -25,6 +25,7 @@ public class App extends Application {
             Path explicitLog = resolveOptionalPath("gauges.log.file", "GAUGES_LOG_FILE");
             Path explicitMaster = resolveOptionalPath("gauges.log.master", "GAUGES_LOG_MASTER");
             Path explicitDir = resolveOptionalPath("gauges.log.dir", "GAUGES_LOG_DIR");
+            Path storageMirror = resolveOptionalPath("gauges.log.storage", "GAUGES_LOG_STORAGE");
 
             Path baseDir = explicitDir != null ? explicitDir : Paths.get("logs");
 
@@ -50,6 +51,10 @@ public class App extends Application {
                     }
                     masterLog = masterBase.resolve("master.log");
                 }
+
+                if (storageMirror == null) {
+                    storageMirror = findStorageMirrorFallback();
+                }
             } catch (IOException ioe) {
                 throw new RuntimeException("Failed to prepare log directory", ioe);
             }
@@ -59,6 +64,14 @@ public class App extends Application {
                 System.out.println("[log] sessionDir=" + sessionDir);
             }
             System.out.println("[log] file=" + logFile + ", master=" + masterLog);
+            if (storageMirror != null) {
+                try {
+                    Logger.addMirror(storageMirror);
+                    System.out.println("[log] storage=" + storageMirror);
+                } catch (Exception ex) {
+                    System.err.println("[log][warn] unable to attach storage log '" + storageMirror + "': " + ex.getMessage());
+                }
+            }
             try { Logger.quietJavaFX(true); } catch (Throwable ignored) {}
         }
         System.out.println("Logging enabled: " + log);
@@ -113,6 +126,24 @@ public class App extends Application {
         Path session = baseDir.resolve("log-" + counter);
         Files.createDirectories(session);
         return session;
+    }
+
+    private static Path findStorageMirrorFallback() {
+        Path start = Paths.get("").toAbsolutePath();
+        for (int depth = 0; depth < 6 && start != null; depth++) {
+            Path candidate = start.resolve("Storage");
+            if (Files.exists(candidate) && !Files.isDirectory(candidate)) {
+                return candidate;
+            }
+            start = start.getParent();
+        }
+
+        Path fallback = Paths.get("Storage");
+        Path parent = fallback.getParent();
+        if (parent == null || Files.isDirectory(parent)) {
+            return fallback;
+        }
+        return null;
     }
 
     private static int nextDirectoryIndex(Path baseDir) throws IOException {

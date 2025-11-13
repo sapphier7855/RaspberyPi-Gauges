@@ -76,17 +76,19 @@ public final class Logger {
             targets.add(masterLogFile);
         }
 
-        List<BufferedWriter> openWriters = new ArrayList<>();
+        List<WriterTarget> openTargets = new ArrayList<>();
 
         try {
             for (Path target : targets) {
-                Path parent = target.toAbsolutePath().getParent();
+                Path normalized = normalizePath(target);
+                Path parent = normalized.getParent();
                 if (parent != null) Files.createDirectories(parent);
-                openWriters.add(Files.newBufferedWriter(target, StandardCharsets.UTF_8,
-                        StandardOpenOption.CREATE, StandardOpenOption.APPEND));
+                BufferedWriter writer = Files.newBufferedWriter(normalized, StandardCharsets.UTF_8,
+                        StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+                openTargets.add(new WriterTarget(normalized, writer));
             }
 
-            WRITERS = openWriters.toArray(BufferedWriter[]::new);
+            WRITERS = openTargets.toArray(WriterTarget[]::new);
 
             ECHO_MINIMAL = echoMinimalToStderr;
 
@@ -124,9 +126,34 @@ public final class Logger {
             // If we fail to initialize, fall back to original streams and report once.
             safePrintToOriginals("Logger initialization failed: " + ioe);
             restoreSystemStreams();
-            for (BufferedWriter w : openWriters) closeQuietly(w);
+            for (WriterTarget target : openTargets) closeQuietly(target.writer);
             WRITERS = NO_WRITERS;
             throw new RuntimeException(ioe);
+        }
+    }
+
+    /** Add an additional mirror target that will receive all log output. */
+    public static synchronized void addMirror(Path extraFile) {
+        Objects.requireNonNull(extraFile, "extraFile");
+        if (!STARTED.get()) {
+            throw new IllegalStateException("Logger has not been started");
+        }
+
+        Path normalized = normalizePath(extraFile);
+        for (WriterTarget target : WRITERS) {
+            if (pathsEqual(target.path, normalized)) {
+                return; // already logging to this file
+            }
+        }
+
+        try {
+            Path parent = normalized.getParent();
+            if (parent != null) Files.createDirectories(parent);
+            BufferedWriter writer = Files.newBufferedWriter(normalized, StandardCharsets.UTF_8,
+                    StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+            WRITERS = append(WRITERS, new WriterTarget(normalized, writer));
+        } catch (IOException ioe) {
+            safePrintToOriginals("Logger addMirror failed: " + ioe);
         }
     }
 
@@ -138,10 +165,10 @@ public final class Logger {
             restoreSystemStreams();
             uninstallJulBridge();
         } finally {
-            BufferedWriter[] writers = WRITERS;
+            WriterTarget[] writers = WRITERS;
             WRITERS = NO_WRITERS;
-            for (BufferedWriter writer : writers) {
-                closeQuietly(writer);
+            for (WriterTarget target : writers) {
+                closeQuietly(target.writer);
             }
             STARTED.set(false);
         }
@@ -206,8 +233,8 @@ public static void quietJavaFX(boolean devMode) {
     // --- Internals ----------------------------------------------------------
 
     private static final AtomicBoolean STARTED = new AtomicBoolean(false);
-    private static final BufferedWriter[] NO_WRITERS = new BufferedWriter[0];
-    private static volatile BufferedWriter[] WRITERS = NO_WRITERS;
+    private static final WriterTarget[] NO_WRITERS = new WriterTarget[0];
+    private static volatile WriterTarget[] WRITERS = NO_WRITERS;
     private static volatile boolean ECHO_MINIMAL;
 
     private static volatile PrintStream ORIGINAL_OUT;
@@ -358,7 +385,7 @@ private static void installJulBridge() {
     }
 
     private static void writeFormatted(Level level, StackTraceElement caller, String message) {
-        BufferedWriter[] writers = WRITERS;
+        WriterTarget[] writers = WRITERS;
         if (writers.length == 0) return;
         String ts = TS.format(LocalDateTime.now());
         String lvl = padLevel(mapLevelName(level));
@@ -367,7 +394,8 @@ private static void installJulBridge() {
         synchronized (Logger.class) {
             try {
                 for (String line : lines) {
-                    for (BufferedWriter writer : writers) {
+                    for (WriterTarget target : writers) {
+                        BufferedWriter writer = target.writer;
                         writer.write(ts);
                         writer.write(" | ");
                         writer.write(lvl);
@@ -378,8 +406,8 @@ private static void installJulBridge() {
                         writer.write('\n');
                     }
                 }
-                for (BufferedWriter writer : writers) {
-                    writer.flush();
+                for (WriterTarget target : writers) {
+                    target.writer.flush();
                 }
             } catch (IOException ioe) {
                 safePrintToOriginals("Logger write failed: " + ioe);
@@ -389,9 +417,9 @@ private static void installJulBridge() {
 
     private static void flushWriter() {
         synchronized (Logger.class) {
-            BufferedWriter[] writers = WRITERS;
-            for (BufferedWriter writer : writers) {
-                try { writer.flush(); } catch (IOException ignored) {}
+            WriterTarget[] writers = WRITERS;
+            for (WriterTarget target : writers) {
+                try { target.writer.flush(); } catch (IOException ignored) {}
             }
         }
     }
@@ -411,6 +439,14 @@ private static void installJulBridge() {
         try { if (c != null) c.close(); } catch (IOException ignored) {}
     }
 
+    private static WriterTarget[] append(WriterTarget[] existing, WriterTarget extra) {
+        int len = existing.length;
+        WriterTarget[] out = new WriterTarget[len + 1];
+        System.arraycopy(existing, 0, out, 0, len);
+        out[len] = extra;
+        return out;
+    }
+
     private static void safePrintToOriginals(String s) {
         try {
             if (ORIGINAL_ERR != null) ORIGINAL_ERR.println(s);
@@ -424,7 +460,11 @@ private static void installJulBridge() {
     private static boolean pathsEqual(Path a, Path b) {
         if (a == b) return true;
         if (a == null || b == null) return false;
-        return a.toAbsolutePath().normalize().equals(b.toAbsolutePath().normalize());
+        return normalizePath(a).equals(normalizePath(b));
+    }
+
+    private static Path normalizePath(Path path) {
+        return path.toAbsolutePath().normalize();
     }
 
     private static String padLevel(String s) {
@@ -526,7 +566,9 @@ private static void installJulBridge() {
         } catch (Exception ignored) { /* best-effort */ }
     }
 
-     // --- Convenience methods for app code ----------------------------------
+    private record WriterTarget(Path path, BufferedWriter writer) {}
+
+    // --- Convenience methods for app code ----------------------------------
 
     public static void log(String msg) {
         logLine(Level.INFO, msg);

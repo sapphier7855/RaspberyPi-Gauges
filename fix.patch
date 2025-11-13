@@ -1,0 +1,30 @@
+(cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a/Start_Scripts/start_ui.sh b/Start_Scripts/start_ui.sh
+index 6ffd5151b9c48a139d022f73dfa33e61cf931344..982e8e3cbd1e98c30df7eda7919ef3e4372da7b0 100755
+--- a/Start_Scripts/start_ui.sh
++++ b/Start_Scripts/start_ui.sh
+@@ -1,12 +1,20 @@
+ #!/usr/bin/env bash
+ set -euo pipefail
+ 
+ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+ cd "$ROOT/ui-java"
+ 
+ export DEV_MODE=false
+ export BACKEND_URL="${BACKEND_URL:-http://127.0.0.1:8000}"
+ 
++# Provide a concrete example of how to direct the UI logger. The Java entry
++# point accepts GAUGES_LOG_DIR (session folders) and GAUGES_LOG_MASTER (the
++# master log file). Callers can override these before invoking the script if a
++# different layout is desired.
++LOG_BASE="${LOG_BASE:-$ROOT/logs}"
++export GAUGES_LOG_DIR="${GAUGES_LOG_DIR:-$LOG_BASE/ui}"
++export GAUGES_LOG_MASTER="${GAUGES_LOG_MASTER:-$LOG_BASE/master.log}"
++
+ # -Ddev=false is just belt & suspenders; App.java reads ENV too
+ exec ./gradlew run --args="--no-dev"
+ 
+ 
+EOF
+)
+

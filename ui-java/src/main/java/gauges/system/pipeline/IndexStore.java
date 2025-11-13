@@ -90,45 +90,6 @@ public final class IndexStore {
      * We attempt to parse JSON via gauges.helpers.JsonConfig.parse(String). If that helper
      * isn’t available, this is a no-op (the BootCoordinator’s compat path can handle Map parsing).
      */
-    @SuppressWarnings({ "rawtypes", "unchecked" })
-    public void applySnapshot(String jsonText) {
-        if (jsonText == null) return;
-        try {
-            Class<?> jsonHelper = Class.forName("gauges.helpers.JsonConfig");
-            var parseMethod = jsonHelper.getMethod("parse", String.class);
-            Object any = parseMethod.invoke(null, jsonText);
-
-            Map parsed;
-            if (any instanceof Map) {
-                parsed = (Map) any;
-            } else {
-                try {
-                    var toMap = any.getClass().getMethod("toMap");
-                    parsed = (Map) toMap.invoke(any);
-                } catch (Throwable t) {
-                    log("[IndexStore][Warn] JsonConfig.parse did not return Map and has no toMap(); ignoring String snapshot");
-                    return;
-                }
-            }
-
-            // Adapt parsed -> Map<String, DataPoint>
-            Map<String, DataPoint> adapted = new LinkedHashMap<>();
-            for (Object kObj : parsed.keySet()) {
-                String k = String.valueOf(kObj);
-                Object raw = parsed.get(kObj);
-                DataPoint dp = DataPoint.fromUnknown(raw);
-                if (dp != null) adapted.put(k, dp);
-            }
-            applySnapshot(adapted);
-
-        } catch (ClassNotFoundException cnf) {
-            log("[IndexStore][Warn] gauges.helpers.JsonConfig not found; applySnapshot(String) is a no-op.");
-        } catch (NoSuchMethodException nsm) {
-            log("[IndexStore][Warn] JsonConfig.parse(String) not found; applySnapshot(String) is a no-op.");
-        } catch (Throwable t) {
-            log("[IndexStore][Error] Failed to parse String snapshot: " + t.getClass().getSimpleName() + " → " + t.getMessage());
-        }
-    }
 
     /** Get a DataPoint by key (null if missing). */
     public DataPoint get(String key) {

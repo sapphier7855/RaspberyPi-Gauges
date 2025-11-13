@@ -186,7 +186,7 @@ public final class SingleGaugeWindow implements WindowManager.WindowSceneControl
         String bindKey;
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("")
     private DisplaySpec parseSingleSpec(String raw) {
         Object root = MiniJson.parse(raw);
         if (root instanceof Map<?,?> map) {
@@ -336,7 +336,7 @@ public final class SingleGaugeWindow implements WindowManager.WindowSceneControl
             throw err("Unexpected char: " + c);
         }
 
-        @SuppressWarnings("unchecked")
+        @SuppressWarnings("")
         private Map<String,Object> parseObject() {
             expect('{');
             java.util.LinkedHashMap<String,Object> map = new java.util.LinkedHashMap<>();

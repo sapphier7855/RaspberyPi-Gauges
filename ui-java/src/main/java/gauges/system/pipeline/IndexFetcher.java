@@ -88,7 +88,6 @@ public final class IndexFetcher {
 
     private void fetchOnce() {
         if (!running) return;
-        long seq = ++tickCount;
 
         HttpRequest req = HttpRequest.newBuilder(endpoint)
                 .GET()

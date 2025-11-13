@@ -261,7 +261,6 @@ public class ControlSplashView extends StackPane {
     }
 
     // Legacy name kept for compatibility, redirect to pulse
-    private void startDotsLoop() { startDotsPulse(); }
 
     private void startDotsPulse() {
         if (!isVisible() || getScene() == null) return;

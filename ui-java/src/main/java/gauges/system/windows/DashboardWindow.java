@@ -169,7 +169,7 @@ public final class DashboardWindow implements WindowManager.WindowSceneControlle
     }
 
     /** Parse dashboard.displays[] using the built-in MiniJson parser. */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings("")
     private List<DisplaySpec> parseDashboardDisplaysViaJson(String dashboardSectionRaw) {
         ArrayList<DisplaySpec> out = new ArrayList<>();
         if (dashboardSectionRaw == null || dashboardSectionRaw.isBlank()) return out;
@@ -439,7 +439,7 @@ public final class DashboardWindow implements WindowManager.WindowSceneControlle
             throw err("Unexpected char: " + c);
         }
 
-        @SuppressWarnings("unchecked")
+        @SuppressWarnings("")
         private Map<String,Object> parseObject() {
             expect('{');
             java.util.LinkedHashMap<String,Object> map = new java.util.LinkedHashMap<>();

@@ -147,7 +147,7 @@ public final class BootCoordinator {
      * Accepts the raw JSON text from IndexFetcher and adapts it to whatever form
      * IndexStore expects (Map<String, IndexStore.DataPoint>), with a reflective fallback.
      */
-    @SuppressWarnings({ "unchecked", "rawtypes" })
+    @SuppressWarnings({ "rawtypes" })
     private static void applySnapshotCompat(IndexStore store, String jsonText) throws Exception {
         // If IndexStore has an overload that accepts String, use it directly.
         try {

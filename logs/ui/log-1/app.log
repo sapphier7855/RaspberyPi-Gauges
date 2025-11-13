@@ -1,59 +1,59 @@
-2025-11-13 12:45:17.152 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [log] sessionDir=/home/gauges/gauges/logs/ui/log-1
-2025-11-13 12:45:17.164 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [log] file=/home/gauges/gauges/logs/ui/log-1/app.log, master=/home/gauges/gauges/logs/master.log
-2025-11-13 12:45:17.170 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | Logging enabled: true
-2025-11-13 12:45:19.601 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot][Probe] base=http://127.0.0.1:8000 candidates=[/api/snapshot, /index, /api/index, /v1/index, /data/index, /index.json]
-2025-11-13 12:45:19.664 | SEVERE  | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot][Probe] error for path /api/snapshot: null
-2025-11-13 12:45:19.666 | SEVERE  | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot][Probe] error for path /index: null
-2025-11-13 12:45:19.669 | SEVERE  | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot][Probe] error for path /api/index: null
-2025-11-13 12:45:19.671 | SEVERE  | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot][Probe] error for path /v1/index: null
-2025-11-13 12:45:19.674 | SEVERE  | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot][Probe] error for path /data/index: null
-2025-11-13 12:45:19.677 | SEVERE  | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot][Probe] error for path /index.json: null
-2025-11-13 12:45:19.677 | SEVERE  | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot][Probe] No 2xx path found; falling back to http://127.0.0.1:8000/api/snapshot
-2025-11-13 12:45:19.678 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:122) | [IndexStore] constructed
-2025-11-13 12:45:19.679 | INFO    | gauges.system.pipeline.IndexRouter.log(IndexRouter.java:109) | [IndexRouter] installed
-2025-11-13 12:45:19.687 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Pipeline] IndexFetcher started → http://127.0.0.1:8000/api/snapshot every 33 ms
-2025-11-13 12:45:20.252 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Mode] Loaded: configs/Modes/mode1.json
-2025-11-13 12:45:20.266 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] after WindowManager
-2025-11-13 12:45:20.335 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |   • javafx.stage.Stage  showing=true  x=NaN y=NaN  w=1280.0 h=720.0  title="Gauges — Dashboard"
-2025-11-13 12:45:20.337 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |   • javafx.stage.Stage  showing=true  x=NaN y=NaN  w=640.0 h=640.0  title="Gauges — Single"
-2025-11-13 12:45:20.339 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |   • javafx.stage.Stage  showing=true  x=NaN y=NaN  w=420.0 h=360.0  title="Gauges — Control Panel"
-2025-11-13 12:45:20.531 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Dashboard][Debug] dashboardSection length=436
-2025-11-13 12:45:20.532 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Dashboard][Debug] dashboardSection head=
-2025-11-13 12:45:20.534 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | {
-2025-11-13 12:45:20.537 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |     "displays": [
-2025-11-13 12:45:20.537 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |       {
-2025-11-13 12:45:20.538 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "type": "gauges.ui.gauges.RollingGauge",
-2025-11-13 12:45:20.538 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "config": "configs/gauges/rolling_style_a.json",
-2025-11-13 12:45:20.538 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "bind": "current.value",
-2025-11-13 12:45:20.538 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "x": 40,  "y": 40,  "w": 560, "h": 280
-2025-11-13 12:45:20.538 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |       },
-2025-11-13 12:45:20.539 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |       {
-2025-11-13 12:45:20.541 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "type": "gauges.ui.gauges.CenterTextGauge",
-2025-11-13 12:45:20.544 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "config": "configs/gauges/center_style_a.json",
-2025-11-13 12:45:20.545 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "bind": "current.value",
-2025-11-13 12:45:20.545 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "x": 620, "y": 40,  
-2025-11-13 12:45:20.545 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Dashboard][Debug] dashboardSection tail=
-2025-11-13 12:45:20.545 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |    "type": "gauges.ui.gauges.CenterTextGauge",
-2025-11-13 12:45:20.546 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "config": "configs/gauges/center_style_a.json",
-2025-11-13 12:45:20.546 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "bind": "current.value",
-2025-11-13 12:45:20.546 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "x": 620, "y": 40,  "w": 560, "h": 280
-2025-11-13 12:45:20.546 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |       }
-2025-11-13 12:45:20.546 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |     ]
-2025-11-13 12:45:20.547 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |   }
-2025-11-13 12:45:20.579 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Dashboard][Probe] found: file:/home/gauges/gauges/ui-java/build/resources/main/configs/gauges/rolling_style_a.json
-2025-11-13 12:45:20.585 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Dashboard] mounted: type=gauges.ui.gauges.RollingGauge config=configs/gauges/rolling_style_a.json bind=current.value center=(40.0,40.0) size=(560.0,280.0)
-2025-11-13 12:45:20.598 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Dashboard][Probe] found: file:/home/gauges/gauges/ui-java/build/resources/main/configs/gauges/center_style_a.json
-2025-11-13 12:45:20.601 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Dashboard] mounted: type=gauges.ui.gauges.CenterTextGauge config=configs/gauges/center_style_a.json bind=current.value center=(620.0,40.0) size=(560.0,280.0)
-2025-11-13 12:45:20.607 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [SingleGauge][Debug] singleGaugeSection length=189
-2025-11-13 12:45:20.610 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [SingleGauge][Debug] singleGaugeSection head=
-2025-11-13 12:45:20.611 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | {
-2025-11-13 12:45:20.611 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |     "displays": [
-2025-11-13 12:45:20.611 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |       {
-2025-11-13 12:45:20.612 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "type": "gauges.ui.gauges.NoTextGaugeDigital",
-2025-11-13 12:45:20.612 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "config": "configs/gauges/digital_style_a.json",
-2025-11-13 12:45:20.612 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "bind": "current.value"
-2025-11-13 12:45:20.612 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |       }
-2025-11-13 12:45:20.613 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |     ]
-2025-11-13 12:45:20.613 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |   }
-2025-11-13 12:45:20.620 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [SingleGauge][Probe] found: file:/home/gauges/gauges/ui-java/build/resources/main/configs/gauges/digital_style_a.json
-2025-11-13 12:45:20.621 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [SingleGauge] mounted: type=gauges.ui.gauges.NoTextGaugeDigital config=configs/gauges/digital_style_a.json bind=current.value
+2025-11-13 12:49:20.345 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [log] sessionDir=/home/gauges/gauges/logs/ui/log-1
+2025-11-13 12:49:20.348 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [log] file=/home/gauges/gauges/logs/ui/log-1/app.log, master=/home/gauges/gauges/logs/master.log
+2025-11-13 12:49:20.349 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | Logging enabled: true
+2025-11-13 12:49:20.941 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot][Probe] base=http://127.0.0.1:8000 candidates=[/api/snapshot, /index, /api/index, /v1/index, /data/index, /index.json]
+2025-11-13 12:49:21.135 | SEVERE  | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot][Probe] error for path /api/snapshot: null
+2025-11-13 12:49:21.166 | SEVERE  | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot][Probe] error for path /index: null
+2025-11-13 12:49:21.179 | SEVERE  | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot][Probe] error for path /api/index: null
+2025-11-13 12:49:21.186 | SEVERE  | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot][Probe] error for path /v1/index: null
+2025-11-13 12:49:21.206 | SEVERE  | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot][Probe] error for path /data/index: null
+2025-11-13 12:49:21.238 | SEVERE  | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot][Probe] error for path /index.json: null
+2025-11-13 12:49:21.240 | SEVERE  | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot][Probe] No 2xx path found; falling back to http://127.0.0.1:8000/api/snapshot
+2025-11-13 12:49:21.242 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:122) | [IndexStore] constructed
+2025-11-13 12:49:21.243 | INFO    | gauges.system.pipeline.IndexRouter.log(IndexRouter.java:109) | [IndexRouter] installed
+2025-11-13 12:49:21.300 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Pipeline] IndexFetcher started → http://127.0.0.1:8000/api/snapshot every 33 ms
+2025-11-13 12:49:22.513 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Mode] Loaded: configs/Modes/mode1.json
+2025-11-13 12:49:22.534 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] after WindowManager
+2025-11-13 12:49:22.642 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |   • javafx.stage.Stage  showing=true  x=NaN y=NaN  w=1280.0 h=720.0  title="Gauges — Dashboard"
+2025-11-13 12:49:22.648 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |   • javafx.stage.Stage  showing=true  x=NaN y=NaN  w=640.0 h=640.0  title="Gauges — Single"
+2025-11-13 12:49:22.666 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |   • javafx.stage.Stage  showing=true  x=NaN y=NaN  w=420.0 h=360.0  title="Gauges — Control Panel"
+2025-11-13 12:49:23.343 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Dashboard][Debug] dashboardSection length=436
+2025-11-13 12:49:23.355 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Dashboard][Debug] dashboardSection head=
+2025-11-13 12:49:23.356 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | {
+2025-11-13 12:49:23.357 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |     "displays": [
+2025-11-13 12:49:23.360 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |       {
+2025-11-13 12:49:23.361 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "type": "gauges.ui.gauges.RollingGauge",
+2025-11-13 12:49:23.363 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "config": "configs/gauges/rolling_style_a.json",
+2025-11-13 12:49:23.364 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "bind": "current.value",
+2025-11-13 12:49:23.364 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "x": 40,  "y": 40,  "w": 560, "h": 280
+2025-11-13 12:49:23.370 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |       },
+2025-11-13 12:49:23.373 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |       {
+2025-11-13 12:49:23.374 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "type": "gauges.ui.gauges.CenterTextGauge",
+2025-11-13 12:49:23.374 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "config": "configs/gauges/center_style_a.json",
+2025-11-13 12:49:23.376 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "bind": "current.value",
+2025-11-13 12:49:23.376 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "x": 620, "y": 40,  
+2025-11-13 12:49:23.379 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Dashboard][Debug] dashboardSection tail=
+2025-11-13 12:49:23.380 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |    "type": "gauges.ui.gauges.CenterTextGauge",
+2025-11-13 12:49:23.384 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "config": "configs/gauges/center_style_a.json",
+2025-11-13 12:49:23.384 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "bind": "current.value",
+2025-11-13 12:49:23.384 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "x": 620, "y": 40,  "w": 560, "h": 280
+2025-11-13 12:49:23.384 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |       }
+2025-11-13 12:49:23.384 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |     ]
+2025-11-13 12:49:23.385 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |   }
+2025-11-13 12:49:23.430 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Dashboard][Probe] found: file:/home/gauges/gauges/ui-java/build/resources/main/configs/gauges/rolling_style_a.json
+2025-11-13 12:49:23.447 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Dashboard] mounted: type=gauges.ui.gauges.RollingGauge config=configs/gauges/rolling_style_a.json bind=current.value center=(40.0,40.0) size=(560.0,280.0)
+2025-11-13 12:49:23.510 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Dashboard][Probe] found: file:/home/gauges/gauges/ui-java/build/resources/main/configs/gauges/center_style_a.json
+2025-11-13 12:49:23.513 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Dashboard] mounted: type=gauges.ui.gauges.CenterTextGauge config=configs/gauges/center_style_a.json bind=current.value center=(620.0,40.0) size=(560.0,280.0)
+2025-11-13 12:49:23.662 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [SingleGauge][Debug] singleGaugeSection length=189
+2025-11-13 12:49:23.663 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [SingleGauge][Debug] singleGaugeSection head=
+2025-11-13 12:49:23.665 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | {
+2025-11-13 12:49:23.672 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |     "displays": [
+2025-11-13 12:49:23.680 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |       {
+2025-11-13 12:49:23.683 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "type": "gauges.ui.gauges.NoTextGaugeDigital",
+2025-11-13 12:49:23.688 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "config": "configs/gauges/digital_style_a.json",
+2025-11-13 12:49:23.688 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "bind": "current.value"
+2025-11-13 12:49:23.690 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |       }
+2025-11-13 12:49:23.690 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |     ]
+2025-11-13 12:49:23.690 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |   }
+2025-11-13 12:49:23.728 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [SingleGauge][Probe] found: file:/home/gauges/gauges/ui-java/build/resources/main/configs/gauges/digital_style_a.json
+2025-11-13 12:49:23.730 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [SingleGauge] mounted: type=gauges.ui.gauges.NoTextGaugeDigital config=configs/gauges/digital_style_a.json bind=current.value

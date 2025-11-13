@@ -26,6 +26,10 @@ public class App extends Application {
             Path explicitMaster = resolveOptionalPath("gauges.log.master", "GAUGES_LOG_MASTER");
             Path explicitDir = resolveOptionalPath("gauges.log.dir", "GAUGES_LOG_DIR");
             Path storageMirror = resolveOptionalPath("gauges.log.storage", "GAUGES_LOG_STORAGE");
+            String pipelineOverride = firstNonBlank(
+                    System.getProperty("gauges.log.dataPipelineDir"),
+                    System.getenv("GAUGES_LOG_DATA_PIPELINE"));
+            Path dataPipelineDir = null;
 
             Path baseDir = explicitDir != null ? explicitDir : Paths.get("logs");
 
@@ -55,6 +59,31 @@ public class App extends Application {
                 if (storageMirror == null) {
                     storageMirror = findStorageMirrorFallback();
                 }
+
+                if (sessionDir != null && System.getProperty("gauges.log.sessionDir") == null) {
+                    System.setProperty("gauges.log.sessionDir", sessionDir.toString());
+                }
+
+                if (pipelineOverride != null) {
+                    dataPipelineDir = Paths.get(pipelineOverride);
+                    if (System.getProperty("gauges.log.dataPipelineDir") == null) {
+                        System.setProperty("gauges.log.dataPipelineDir", dataPipelineDir.toString());
+                    }
+                } else {
+                    Path pipelineBase;
+                    if (sessionDir != null) {
+                        pipelineBase = sessionDir;
+                    } else if (explicitDir != null) {
+                        pipelineBase = baseDir;
+                    } else {
+                        pipelineBase = logFile.toAbsolutePath().getParent();
+                        if (pipelineBase == null) {
+                            pipelineBase = baseDir;
+                        }
+                    }
+                    dataPipelineDir = pipelineBase.resolve("data-pipline");
+                    System.setProperty("gauges.log.dataPipelineDir", dataPipelineDir.toString());
+                }
             } catch (IOException ioe) {
                 throw new RuntimeException("Failed to prepare log directory", ioe);
             }
@@ -64,6 +93,9 @@ public class App extends Application {
                 System.out.println("[log] sessionDir=" + sessionDir);
             }
             System.out.println("[log] file=" + logFile + ", master=" + masterLog);
+            if (dataPipelineDir != null) {
+                System.out.println("[log] data-pipline=" + dataPipelineDir);
+            }
             if (storageMirror != null) {
                 try {
                     Logger.addMirror(storageMirror);

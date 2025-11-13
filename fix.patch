@@ -1,113 +1,59 @@
 (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a/ui-java/src/main/java/gauges/system/pipeline/IndexFetcher.java b/ui-java/src/main/java/gauges/system/pipeline/IndexFetcher.java
-index c3a61ceb91f9334165ae0b58cdeafca394b72edf..91460a7e418ca69fb40c4c31e68c56d5e01da02b 100644
---- a/ui-java/src/main/java/gauges/system/pipeline/IndexFetcher.java
-+++ b/ui-java/src/main/java/gauges/system/pipeline/IndexFetcher.java
-@@ -27,93 +27,103 @@ public final class IndexFetcher {
-     private final Duration period;
-     private final Duration timeout;
-     private final Consumer<String> onSnapshot;
+diff --git a/ui-java/src/main/java/gauges/system/Logger.java b/ui-java/src/main/java/gauges/system/Logger.java
+index 77321ec6503acf70f36ff7a77a34738f3a982d35..f905c78ce16a550835a44110d8e943f494b2a1ed 100644
+--- a/ui-java/src/main/java/gauges/system/Logger.java
++++ b/ui-java/src/main/java/gauges/system/Logger.java
+@@ -649,46 +649,51 @@ private static void installJulBridge() {
+         try {
+             java.util.logging.Logger.getLogger(name).setLevel(level);
+         } catch (Exception ignored) { /* best-effort */ }
+     }
  
-     private final HttpClient client;
-     private final ScheduledExecutorService scheduler;
+     private record WriterTarget(Path path, BufferedWriter writer) {}
  
-     private volatile boolean running;
-     private volatile boolean stopping;
-     private volatile ScheduledFuture<?> task;
-     private final AtomicBoolean inFlight = new AtomicBoolean(false);
-     private volatile long tickCount = 0L;
+     // --- Convenience methods for app code ----------------------------------
  
-     public IndexFetcher(URI endpoint, Duration period, Duration timeout, Consumer<String> onSnapshot) {
-         this.endpoint   = Objects.requireNonNull(endpoint, "endpoint");
-         this.period     = Objects.requireNonNull(period, "period");
-         this.timeout    = Objects.requireNonNull(timeout, "timeout");
-         this.onSnapshot = Objects.requireNonNull(onSnapshot, "onSnapshot");
+     public static void log(String msg) {
+         logLine(Level.INFO, msg);
+     }
  
-         this.client = HttpClient.newBuilder().connectTimeout(timeout).build();
-         this.scheduler = Executors.newSingleThreadScheduledExecutor(r -> {
-             Thread t = new Thread(r, "IndexFetcher");
-             t.setDaemon(true);
-             return t;
-         });
+     public static void info(String msg) {
+         logLine(Level.INFO, msg);
+     }
+ 
+     public static void warn(String msg) {
+         logLine(Level.WARNING, msg);
+     }
+ 
+     public static void error(String msg) {
+         logLine(Level.SEVERE, msg);
+     }
+ 
++    /** True once {@link #start(Path)} has completed successfully. */
++    public static boolean isActive() {
++        return STARTED.get();
++    }
 +
-+        DataPipelineLog.fetcherLifecycle("constructed endpoint=" + endpoint + ", period="
-+                + period.toMillis() + "ms, timeout=" + timeout.toMillis() + "ms");
+     public static void log(String category, String msg) {
+         logLine(Level.INFO, category, msg);
      }
  
-     public synchronized void start() {
-         if (running) return;
-         stopping = false;
-         running  = true;
-+        DataPipelineLog.fetcherLifecycle("start requested");
-         task = scheduler.scheduleAtFixedRate(this::safeFetchOnce, 0L, period.toMillis(), TimeUnit.MILLISECONDS);
+     public static void info(String category, String msg) {
+         logLine(Level.INFO, category, msg);
      }
  
-     public synchronized void stop() {
-         if (!running && !stopping) return;
-         stopping = true;
-         running  = false;
-+        DataPipelineLog.fetcherLifecycle("stop requested");
-         if (task != null) {
-             task.cancel(true);
-             task = null;
-         }
-         scheduler.shutdownNow();
-         try {
-             scheduler.awaitTermination(Math.max(1, timeout.toMillis() / 1000), TimeUnit.SECONDS);
-         } catch (InterruptedException ignored) {
-             Thread.currentThread().interrupt();
-         }
+     public static void warn(String category, String msg) {
+         logLine(Level.WARNING, category, msg);
      }
  
-     private void safeFetchOnce() {
-         if (!running) return;
-         if (!inFlight.compareAndSet(false, true)) return;
-+        long seq = tickCount + 1;
-         try {
-             fetchOnce();
-         } catch (Throwable t) {
--            // ignore unexpected exceptions quietly
-+            DataPipelineLog.fetcherFailure(seq, t);
-         } finally {
-             inFlight.set(false);
-         }
+     public static void error(String category, String msg) {
+         logLine(Level.SEVERE, category, msg);
      }
  
-     private void fetchOnce() {
-         if (!running) return;
-         long seq = ++tickCount;
  
-         HttpRequest req = HttpRequest.newBuilder(endpoint)
-                 .GET()
-                 .timeout(timeout)
-                 .header("Accept", "application/json")
-                 .build();
- 
-         try {
-             HttpResponse<byte[]> resp = client.send(req, HttpResponse.BodyHandlers.ofByteArray());
-             int code = resp.statusCode();
-             byte[] body = resp.body();
-             int len = (body == null ? 0 : body.length);
-+            String text = (len > 0) ? new String(body, StandardCharsets.UTF_8) : "";
- 
-             if (code >= 200 && code < 300 && len > 0) {
--                String text = new String(body, StandardCharsets.UTF_8);
-                 try {
-                     onSnapshot.accept(text);
-                 } catch (Throwable ignored) { }
-             }
-+            DataPipelineLog.fetcherSnapshot(seq, code, len, text);
- 
-         } catch (InterruptedException ie) {
-             Thread.currentThread().interrupt();
-+            DataPipelineLog.fetcherFailure(seq, ie);
-         } catch (IOException ignored) {
-+            DataPipelineLog.fetcherFailure(seq, ignored);
-         } catch (Throwable ignored) {
-+            DataPipelineLog.fetcherFailure(seq, ignored);
-         }
-     }
+     private Logger() {}
  }
+ 
  
  
 EOF

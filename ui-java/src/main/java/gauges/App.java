@@ -1,5 +1,6 @@
 package gauges;
 
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 
@@ -15,7 +16,10 @@ public class App extends Application {
     public static void main(String[] args) {
         log = resolveLogFlag(args, log);
         if (log) {
-            Logger.start(Paths.get("logs/app.log"), true);
+            Path logFile = resolvePath("gauges.log.file", "GAUGES_LOG_FILE", "logs/app.log");
+            Path masterLog = resolvePath("gauges.log.master", "GAUGES_LOG_MASTER", "logs/master.log");
+            Logger.start(logFile, masterLog, true);
+            System.out.println("[log] file=" + logFile + ", master=" + masterLog);
             try { Logger.quietJavaFX(true); } catch (Throwable ignored) {}
         }
         System.out.println("Logging enabled: " + log);
@@ -45,6 +49,21 @@ public class App extends Application {
         b = parseBool(env);
         if (b != null) return b;
         return defaultValue;
+    }
+
+    private static Path resolvePath(String sysPropKey, String envKey, String defaultPath) {
+        String value = firstNonBlank(System.getProperty(sysPropKey), System.getenv(envKey), defaultPath);
+        return Paths.get(value);
+    }
+
+    private static String firstNonBlank(String... values) {
+        if (values == null) return null;
+        for (String v : values) {
+            if (v != null && !v.trim().isEmpty()) {
+                return v.trim();
+            }
+        }
+        return null;
     }
     private static Boolean parseBool(String s) {
         if (s == null) return null;

@@ -1,0 +1,716 @@
+2025-11-13 22:24:37.638 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [log] sessionDir=/home/gauges/gauges/logs/ui/log-5
+2025-11-13 22:24:37.643 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [log] file=/home/gauges/gauges/logs/ui/log-5/app.log, master=/home/gauges/gauges/logs/master.log
+2025-11-13 22:24:37.645 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [log] data-pipline=/home/gauges/gauges/logs/ui/log-5/data-pipline
+2025-11-13 22:24:37.646 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [log] storage=/home/gauges/gauges/Storage
+2025-11-13 22:24:37.648 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | Logging enabled: true
+2025-11-13 22:24:38.191 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot][Probe] base=http://127.0.0.1:8000 candidates=[/api/snapshot, /index, /api/index, /v1/index, /data/index, /index.json]
+2025-11-13 22:24:38.759 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot][Probe] http://127.0.0.1:8000/api/snapshot → status=200 in 462ms
+2025-11-13 22:24:38.788 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot][Probe] Selected endpoint: http://127.0.0.1:8000/api/snapshot (200)
+2025-11-13 22:24:39.531 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore] constructed
+2025-11-13 22:24:39.537 | INFO    | gauges.system.pipeline.IndexRouter.log(IndexRouter.java:132) | [IndexRouter] installed
+2025-11-13 22:24:39.554 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Pipeline] IndexFetcher started → http://127.0.0.1:8000/api/snapshot every 33 ms
+2025-11-13 22:24:39.621 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:39.689 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=1
+2025-11-13 22:24:39.691 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=102.16250884000146@1763101479681
+2025-11-13 22:24:39.693 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101479681
+2025-11-13 22:24:39.700 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101479681
+2025-11-13 22:24:39.701 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=1
+2025-11-13 22:24:39.710 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:39.713 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=2
+2025-11-13 22:24:39.714 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=103.50182437000058@1763101479711
+2025-11-13 22:24:39.717 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101479711
+2025-11-13 22:24:39.718 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101479711
+2025-11-13 22:24:39.719 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=2
+2025-11-13 22:24:39.726 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:39.728 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=3
+2025-11-13 22:24:39.730 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=103.61736684000107@1763101479727
+2025-11-13 22:24:39.732 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101479727
+2025-11-13 22:24:39.733 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101479727
+2025-11-13 22:24:39.734 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=3
+2025-11-13 22:24:39.749 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:39.750 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=4
+2025-11-13 22:24:39.751 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=103.85147367999934@1763101479749
+2025-11-13 22:24:39.754 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101479749
+2025-11-13 22:24:39.771 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101479749
+2025-11-13 22:24:39.773 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=4
+2025-11-13 22:24:39.803 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:39.817 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=5
+2025-11-13 22:24:39.818 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=104.32650721000073@1763101479816
+2025-11-13 22:24:39.819 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101479816
+2025-11-13 22:24:39.819 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101479816
+2025-11-13 22:24:39.820 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=5
+2025-11-13 22:24:39.825 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:39.844 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=6
+2025-11-13 22:24:39.846 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=104.67064701000027@1763101479825
+2025-11-13 22:24:39.847 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101479825
+2025-11-13 22:24:39.848 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101479825
+2025-11-13 22:24:39.848 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=6
+2025-11-13 22:24:39.854 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:39.856 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=7
+2025-11-13 22:24:39.856 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=104.89644047999946@1763101479855
+2025-11-13 22:24:39.857 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101479855
+2025-11-13 22:24:39.858 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101479855
+2025-11-13 22:24:39.862 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=7
+2025-11-13 22:24:39.868 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:39.869 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=8
+2025-11-13 22:24:39.870 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=105.1032209999994@1763101479869
+2025-11-13 22:24:39.871 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101479869
+2025-11-13 22:24:39.872 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101479869
+2025-11-13 22:24:39.873 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=8
+2025-11-13 22:24:39.880 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:39.882 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=9
+2025-11-13 22:24:39.884 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=105.21135372000117@1763101479882
+2025-11-13 22:24:39.884 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101479882
+2025-11-13 22:24:39.885 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101479882
+2025-11-13 22:24:39.887 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=9
+2025-11-13 22:24:39.893 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:39.897 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=10
+2025-11-13 22:24:39.899 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=105.31339293999963@1763101479895
+2025-11-13 22:24:39.900 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101479895
+2025-11-13 22:24:39.902 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101479895
+2025-11-13 22:24:39.904 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=10
+2025-11-13 22:24:39.913 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:39.918 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=11
+2025-11-13 22:24:39.920 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=105.53509788000156@1763101479916
+2025-11-13 22:24:39.921 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101479916
+2025-11-13 22:24:39.922 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101479916
+2025-11-13 22:24:39.923 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=11
+2025-11-13 22:24:39.934 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:39.936 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=12
+2025-11-13 22:24:39.938 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=105.75103359999957@1763101479935
+2025-11-13 22:24:39.939 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101479935
+2025-11-13 22:24:39.940 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101479935
+2025-11-13 22:24:39.940 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=12
+2025-11-13 22:24:39.953 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:39.955 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=13
+2025-11-13 22:24:39.956 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=105.86044194000124@1763101479954
+2025-11-13 22:24:39.956 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101479954
+2025-11-13 22:24:39.957 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101479954
+2025-11-13 22:24:39.958 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=13
+2025-11-13 22:24:39.990 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:39.991 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=14
+2025-11-13 22:24:39.992 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=106.27930564000053@1763101479991
+2025-11-13 22:24:39.997 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101479991
+2025-11-13 22:24:39.998 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101479991
+2025-11-13 22:24:39.999 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=14
+2025-11-13 22:24:40.020 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:40.022 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=15
+2025-11-13 22:24:40.024 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=106.50720646000082@1763101480021
+2025-11-13 22:24:40.026 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101480021
+2025-11-13 22:24:40.028 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101480021
+2025-11-13 22:24:40.030 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=15
+2025-11-13 22:24:40.050 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:40.051 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=16
+2025-11-13 22:24:40.052 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=106.88283291000062@1763101480051
+2025-11-13 22:24:40.053 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101480051
+2025-11-13 22:24:40.054 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101480051
+2025-11-13 22:24:40.055 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=16
+2025-11-13 22:24:40.126 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:40.130 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=17
+2025-11-13 22:24:40.133 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=107.6204318200007@1763101480128
+2025-11-13 22:24:40.134 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101480128
+2025-11-13 22:24:40.137 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101480128
+2025-11-13 22:24:40.139 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=17
+2025-11-13 22:24:40.167 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:40.169 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=18
+2025-11-13 22:24:40.171 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=107.93753164999998@1763101480168
+2025-11-13 22:24:40.179 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101480168
+2025-11-13 22:24:40.189 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101480168
+2025-11-13 22:24:40.200 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=18
+2025-11-13 22:24:40.237 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:40.240 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=19
+2025-11-13 22:24:40.261 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=108.44820656000138@1763101480238
+2025-11-13 22:24:40.262 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101480238
+2025-11-13 22:24:40.262 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101480238
+2025-11-13 22:24:40.267 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=19
+2025-11-13 22:24:40.341 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:40.342 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=20
+2025-11-13 22:24:40.343 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=109.68868391000115@1763101480341
+2025-11-13 22:24:40.344 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101480341
+2025-11-13 22:24:40.345 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101480341
+2025-11-13 22:24:40.346 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=20
+2025-11-13 22:24:40.378 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:40.395 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=21
+2025-11-13 22:24:40.398 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=110.03121608000129@1763101480393
+2025-11-13 22:24:40.400 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101480393
+2025-11-13 22:24:40.430 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101480393
+2025-11-13 22:24:40.443 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=21
+2025-11-13 22:24:40.531 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:40.535 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=22
+2025-11-13 22:24:40.536 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=111.42498210999975@1763101480534
+2025-11-13 22:24:40.538 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101480534
+2025-11-13 22:24:40.539 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101480534
+2025-11-13 22:24:40.540 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=22
+2025-11-13 22:24:40.583 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Mode] Loaded: configs/Modes/mode1.json
+2025-11-13 22:24:40.592 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] after WindowManager
+2025-11-13 22:24:40.622 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:40.639 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=23
+2025-11-13 22:24:40.640 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=111.90153268000131@1763101480639
+2025-11-13 22:24:40.644 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101480639
+2025-11-13 22:24:40.655 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101480639
+2025-11-13 22:24:40.669 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=23
+2025-11-13 22:24:40.702 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |   • javafx.stage.Stage  showing=true  x=NaN y=NaN  w=1280.0 h=720.0  title="Gauges — Dashboard"
+2025-11-13 22:24:40.724 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |   • javafx.stage.Stage  showing=true  x=NaN y=NaN  w=640.0 h=640.0  title="Gauges — Single"
+2025-11-13 22:24:40.748 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |   • javafx.stage.Stage  showing=true  x=NaN y=NaN  w=420.0 h=360.0  title="Gauges — Control Panel"
+2025-11-13 22:24:40.832 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:40.838 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=24
+2025-11-13 22:24:40.838 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=113.60394313000143@1763101480837
+2025-11-13 22:24:40.839 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101480837
+2025-11-13 22:24:40.839 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101480837
+2025-11-13 22:24:40.839 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=24
+2025-11-13 22:24:40.870 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:40.870 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=25
+2025-11-13 22:24:40.871 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=114.97507463000147@1763101480870
+2025-11-13 22:24:40.871 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101480870
+2025-11-13 22:24:40.872 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101480870
+2025-11-13 22:24:40.872 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=25
+2025-11-13 22:24:40.887 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:40.891 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=26
+2025-11-13 22:24:40.903 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=115.19670297999937@1763101480890
+2025-11-13 22:24:40.914 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101480890
+2025-11-13 22:24:40.920 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101480890
+2025-11-13 22:24:40.922 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=26
+2025-11-13 22:24:40.999 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:41.014 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=27
+2025-11-13 22:24:41.031 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=115.96193985000127@1763101481006
+2025-11-13 22:24:41.039 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101481008
+2025-11-13 22:24:41.048 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101481008
+2025-11-13 22:24:41.069 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=27
+2025-11-13 22:24:41.141 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:41.148 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=28
+2025-11-13 22:24:41.153 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=117.62873949000095@1763101481147
+2025-11-13 22:24:41.164 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101481147
+2025-11-13 22:24:41.167 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101481147
+2025-11-13 22:24:41.168 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=28
+2025-11-13 22:24:41.207 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:41.215 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=29
+2025-11-13 22:24:41.215 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=118.25447866000104@1763101481214
+2025-11-13 22:24:41.221 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101481214
+2025-11-13 22:24:41.224 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101481214
+2025-11-13 22:24:41.228 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=29
+2025-11-13 22:24:41.277 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:41.286 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=30
+2025-11-13 22:24:41.287 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Dashboard][Debug] dashboardSection length=428
+2025-11-13 22:24:41.287 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=118.88176595000004@1763101481280
+2025-11-13 22:24:41.293 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Dashboard][Debug] dashboardSection head=
+2025-11-13 22:24:41.293 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | {
+2025-11-13 22:24:41.299 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |     "displays": [
+2025-11-13 22:24:41.303 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |       {
+2025-11-13 22:24:41.307 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "type": "gauges.ui.gauges.RollingGauge",
+2025-11-13 22:24:41.307 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "config": "configs/gauges/rolling_style_a.json",
+2025-11-13 22:24:41.307 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "bind": "current",
+2025-11-13 22:24:41.307 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "x": 280,  "y": 140,  "w": 560, "h": 280
+2025-11-13 22:24:41.307 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |       },
+2025-11-13 22:24:41.307 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |       {
+2025-11-13 22:24:41.319 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101481280
+2025-11-13 22:24:41.323 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101481280
+2025-11-13 22:24:41.307 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "type": "gauges.ui.gauges.CenterTextGauge",
+2025-11-13 22:24:41.337 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "config": "configs/gauges/center_style_a.json",
+2025-11-13 22:24:41.337 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "bind": "current2",
+2025-11-13 22:24:41.337 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "x": 940, "y": 280,  "w": 560
+2025-11-13 22:24:41.337 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=30
+2025-11-13 22:24:41.345 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Dashboard][Debug] dashboardSection tail=
+2025-11-13 22:24:41.359 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |        "type": "gauges.ui.gauges.CenterTextGauge",
+2025-11-13 22:24:41.386 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "config": "configs/gauges/center_style_a.json",
+2025-11-13 22:24:41.391 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "bind": "current2",
+2025-11-13 22:24:41.395 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "x": 940, "y": 280,  "w": 560, "h": 280
+2025-11-13 22:24:41.396 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |       }
+2025-11-13 22:24:41.397 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |     ]
+2025-11-13 22:24:41.397 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |   }
+2025-11-13 22:24:41.407 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:41.418 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=31
+2025-11-13 22:24:41.439 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=119.99806013000125@1763101481408
+2025-11-13 22:24:41.443 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101481408
+2025-11-13 22:24:41.444 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101481408
+2025-11-13 22:24:41.449 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=31
+2025-11-13 22:24:41.451 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Dashboard][Probe] found: file:/home/gauges/gauges/ui-java/build/resources/main/configs/gauges/rolling_style_a.json
+2025-11-13 22:24:41.471 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Dashboard] mounted: type=gauges.ui.gauges.RollingGauge config=configs/gauges/rolling_style_a.json bind=current center=(280.0,140.0) size=(560.0,280.0)
+2025-11-13 22:24:41.483 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:41.497 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=32
+2025-11-13 22:24:41.504 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=120.99445097999933@1763101481492
+2025-11-13 22:24:41.507 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Dashboard][Probe] found: file:/home/gauges/gauges/ui-java/build/resources/main/configs/gauges/center_style_a.json
+2025-11-13 22:24:41.519 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101481492
+2025-11-13 22:24:41.522 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Dashboard] mounted: type=gauges.ui.gauges.CenterTextGauge config=configs/gauges/center_style_a.json bind=current2 center=(940.0,280.0) size=(560.0,280.0)
+2025-11-13 22:24:41.530 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101481492
+2025-11-13 22:24:41.538 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=32
+2025-11-13 22:24:41.567 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:41.568 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=33
+2025-11-13 22:24:41.569 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=121.96188478000067@1763101481567
+2025-11-13 22:24:41.587 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101481567
+2025-11-13 22:24:41.588 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101481567
+2025-11-13 22:24:41.591 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=33
+2025-11-13 22:24:41.607 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:41.608 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [SingleGauge][Debug] singleGaugeSection length=184
+2025-11-13 22:24:41.608 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [SingleGauge][Debug] singleGaugeSection head=
+2025-11-13 22:24:41.610 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=34
+2025-11-13 22:24:41.611 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | {
+2025-11-13 22:24:41.612 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |     "displays": [
+2025-11-13 22:24:41.613 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |       {
+2025-11-13 22:24:41.614 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "type": "gauges.ui.gauges.NoTextGaugeDigital",
+2025-11-13 22:24:41.614 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "config": "configs/gauges/digital_style_a.json",
+2025-11-13 22:24:41.614 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |         "bind": "current3"
+2025-11-13 22:24:41.614 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |       }
+2025-11-13 22:24:41.614 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=122.4699782100015@1763101481608
+2025-11-13 22:24:41.614 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |     ]
+2025-11-13 22:24:41.615 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) |   }
+2025-11-13 22:24:41.615 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101481608
+2025-11-13 22:24:41.616 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101481608
+2025-11-13 22:24:41.616 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=34
+2025-11-13 22:24:41.621 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:41.622 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=35
+2025-11-13 22:24:41.623 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=122.58215924000069@1763101481622
+2025-11-13 22:24:41.623 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101481622
+2025-11-13 22:24:41.624 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101481622
+2025-11-13 22:24:41.624 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [SingleGauge][Probe] found: file:/home/gauges/gauges/ui-java/build/resources/main/configs/gauges/digital_style_a.json
+2025-11-13 22:24:41.625 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=35
+2025-11-13 22:24:41.625 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [SingleGauge] mounted: type=gauges.ui.gauges.NoTextGaugeDigital config=configs/gauges/digital_style_a.json bind=current3
+2025-11-13 22:24:41.636 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:41.643 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=36
+2025-11-13 22:24:41.646 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=122.68869416000143@1763101481641
+2025-11-13 22:24:41.647 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101481641
+2025-11-13 22:24:41.648 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101481641
+2025-11-13 22:24:41.649 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=36
+2025-11-13 22:24:41.663 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:41.664 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=37
+2025-11-13 22:24:41.665 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=123.00883014999954@1763101481663
+2025-11-13 22:24:41.665 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101481663
+2025-11-13 22:24:41.666 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101481663
+2025-11-13 22:24:41.666 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=37
+2025-11-13 22:24:41.672 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:41.674 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=38
+2025-11-13 22:24:41.675 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=123.1167303899997@1763101481673
+2025-11-13 22:24:41.675 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101481673
+2025-11-13 22:24:41.675 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101481673
+2025-11-13 22:24:41.676 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=38
+2025-11-13 22:24:41.683 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:41.684 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=39
+2025-11-13 22:24:41.685 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=123.23090589000003@1763101481684
+2025-11-13 22:24:41.685 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101481684
+2025-11-13 22:24:41.685 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101481684
+2025-11-13 22:24:41.685 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=39
+2025-11-13 22:24:41.693 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:41.695 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=40
+2025-11-13 22:24:41.696 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=123.23090589000003@1763101481694
+2025-11-13 22:24:41.696 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101481694
+2025-11-13 22:24:41.697 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101481694
+2025-11-13 22:24:41.697 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=40
+2025-11-13 22:24:41.734 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:41.740 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=41
+2025-11-13 22:24:41.747 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=123.36024636000047@1763101481739
+2025-11-13 22:24:41.748 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101481739
+2025-11-13 22:24:41.749 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101481739
+2025-11-13 22:24:41.750 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=41
+2025-11-13 22:24:41.784 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:41.785 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=42
+2025-11-13 22:24:41.787 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=124.20149753000032@1763101481785
+2025-11-13 22:24:41.787 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101481785
+2025-11-13 22:24:41.791 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101481785
+2025-11-13 22:24:41.794 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=42
+2025-11-13 22:24:41.811 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:41.814 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=43
+2025-11-13 22:24:41.815 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=124.43430357000125@1763101481813
+2025-11-13 22:24:41.815 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101481813
+2025-11-13 22:24:41.816 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101481813
+2025-11-13 22:24:41.816 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=43
+2025-11-13 22:24:41.822 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:41.823 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=44
+2025-11-13 22:24:41.823 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=124.54934976999994@1763101481822
+2025-11-13 22:24:41.823 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101481822
+2025-11-13 22:24:41.824 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101481822
+2025-11-13 22:24:41.824 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=44
+2025-11-13 22:24:41.834 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:41.834 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=45
+2025-11-13 22:24:41.835 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=124.65668869999945@1763101481834
+2025-11-13 22:24:41.835 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101481834
+2025-11-13 22:24:41.836 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101481834
+2025-11-13 22:24:41.836 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=45
+2025-11-13 22:24:41.854 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:41.855 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=46
+2025-11-13 22:24:41.855 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=124.76836939000123@1763101481854
+2025-11-13 22:24:41.856 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101481854
+2025-11-13 22:24:41.856 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101481854
+2025-11-13 22:24:41.857 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=46
+2025-11-13 22:24:41.864 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:41.866 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=47
+2025-11-13 22:24:41.868 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=125.03538714000115@1763101481864
+2025-11-13 22:24:41.870 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101481864
+2025-11-13 22:24:41.874 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101481864
+2025-11-13 22:24:41.875 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=47
+2025-11-13 22:24:41.998 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:42.001 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=48
+2025-11-13 22:24:42.001 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=125.81638423999948@1763101482000
+2025-11-13 22:24:42.001 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101482000
+2025-11-13 22:24:42.005 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101482000
+2025-11-13 22:24:42.005 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=48
+2025-11-13 22:24:42.169 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:42.172 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=49
+2025-11-13 22:24:42.172 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=127.81165282000075@1763101482170
+2025-11-13 22:24:42.173 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101482170
+2025-11-13 22:24:42.173 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101482170
+2025-11-13 22:24:42.173 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=49
+2025-11-13 22:24:42.235 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:42.277 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=50
+2025-11-13 22:24:42.298 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=128.39157340000156@1763101482271
+2025-11-13 22:24:42.359 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101482271
+2025-11-13 22:24:42.360 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101482271
+2025-11-13 22:24:42.360 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=50
+2025-11-13 22:24:43.109 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:43.110 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=51
+2025-11-13 22:24:43.112 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=137.46855102000154@1763101483110
+2025-11-13 22:24:43.113 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101483110
+2025-11-13 22:24:43.113 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101483110
+2025-11-13 22:24:43.114 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=51
+2025-11-13 22:24:43.229 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:43.236 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=52
+2025-11-13 22:24:43.236 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=137.93514937000054@1763101483235
+2025-11-13 22:24:43.237 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101483235
+2025-11-13 22:24:43.237 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101483235
+2025-11-13 22:24:43.237 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=52
+2025-11-13 22:24:43.279 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:43.288 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=53
+2025-11-13 22:24:43.289 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=138.91447024999934@1763101483284
+2025-11-13 22:24:43.289 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101483284
+2025-11-13 22:24:43.299 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101483284
+2025-11-13 22:24:43.302 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=53
+2025-11-13 22:24:43.369 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:43.372 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=54
+2025-11-13 22:24:43.372 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=139.65922782999996@1763101483371
+2025-11-13 22:24:43.380 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101483371
+2025-11-13 22:24:43.389 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101483371
+2025-11-13 22:24:43.408 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=54
+2025-11-13 22:24:43.499 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:43.519 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=55
+2025-11-13 22:24:43.524 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=140.923706210001@1763101483507
+2025-11-13 22:24:43.533 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101483507
+2025-11-13 22:24:43.536 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101483507
+2025-11-13 22:24:43.548 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=55
+2025-11-13 22:24:43.632 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:43.642 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=56
+2025-11-13 22:24:43.643 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=142.10385439999982@1763101483639
+2025-11-13 22:24:43.647 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101483639
+2025-11-13 22:24:43.652 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101483639
+2025-11-13 22:24:43.663 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=56
+2025-11-13 22:24:43.917 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:43.922 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=57
+2025-11-13 22:24:43.932 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=145.36926404000042@1763101483920
+2025-11-13 22:24:43.945 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101483920
+2025-11-13 22:24:43.946 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101483920
+2025-11-13 22:24:43.947 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=57
+2025-11-13 22:24:44.034 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:44.051 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=58
+2025-11-13 22:24:44.051 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=146.04366719000154@1763101484047
+2025-11-13 22:24:44.053 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101484047
+2025-11-13 22:24:44.054 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101484047
+2025-11-13 22:24:44.054 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=58
+2025-11-13 22:24:44.096 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:44.100 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=59
+2025-11-13 22:24:44.100 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=147.08484975000147@1763101484099
+2025-11-13 22:24:44.104 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101484099
+2025-11-13 22:24:44.128 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101484099
+2025-11-13 22:24:44.134 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=59
+2025-11-13 22:24:44.325 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:44.342 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=60
+2025-11-13 22:24:44.347 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=148.92875766000088@1763101484341
+2025-11-13 22:24:44.357 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101484341
+2025-11-13 22:24:44.359 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101484341
+2025-11-13 22:24:44.359 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=60
+2025-11-13 22:24:44.408 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:44.416 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=61
+2025-11-13 22:24:44.424 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=150.31582742999944@1763101484408
+2025-11-13 22:24:44.436 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101484408
+2025-11-13 22:24:44.462 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101484408
+2025-11-13 22:24:44.503 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=61
+2025-11-13 22:24:44.723 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:44.730 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=62
+2025-11-13 22:24:44.731 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=153.3218931600004@1763101484729
+2025-11-13 22:24:44.731 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101484729
+2025-11-13 22:24:44.731 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101484729
+2025-11-13 22:24:44.731 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=62
+2025-11-13 22:24:44.844 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:44.855 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=63
+2025-11-13 22:24:44.887 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=154.10922300000038@1763101484849
+2025-11-13 22:24:44.899 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101484849
+2025-11-13 22:24:44.919 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101484849
+2025-11-13 22:24:44.924 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=63
+2025-11-13 22:24:45.098 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:45.103 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=64
+2025-11-13 22:24:45.103 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=156.05174128000044@1763101485103
+2025-11-13 22:24:45.104 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101485103
+2025-11-13 22:24:45.104 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101485103
+2025-11-13 22:24:45.104 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=64
+2025-11-13 22:24:45.218 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:45.224 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=65
+2025-11-13 22:24:45.226 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=157.91775546000054@1763101485224
+2025-11-13 22:24:45.227 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101485224
+2025-11-13 22:24:45.227 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101485224
+2025-11-13 22:24:45.227 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=65
+2025-11-13 22:24:45.286 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:45.297 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=66
+2025-11-13 22:24:45.331 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=159.01649172000134@1763101485290
+2025-11-13 22:24:45.331 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101485290
+2025-11-13 22:24:45.331 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101485290
+2025-11-13 22:24:45.332 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=66
+2025-11-13 22:24:45.380 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:45.389 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=67
+2025-11-13 22:24:45.391 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=159.75208575000124@1763101485384
+2025-11-13 22:24:45.403 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101485384
+2025-11-13 22:24:45.415 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101485384
+2025-11-13 22:24:45.422 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=67
+2025-11-13 22:24:45.490 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:45.522 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=68
+2025-11-13 22:24:45.544 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=160.99041716000102@1763101485500
+2025-11-13 22:24:45.551 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101485500
+2025-11-13 22:24:45.561 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101485500
+2025-11-13 22:24:45.563 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=68
+2025-11-13 22:24:45.620 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:45.633 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=69
+2025-11-13 22:24:45.641 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=162.21743841000034@1763101485624
+2025-11-13 22:24:45.643 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101485624
+2025-11-13 22:24:45.654 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101485624
+2025-11-13 22:24:45.698 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=69
+2025-11-13 22:24:45.777 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:45.783 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=70
+2025-11-13 22:24:45.784 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=163.92370792000065@1763101485781
+2025-11-13 22:24:45.792 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101485781
+2025-11-13 22:24:45.804 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101485781
+2025-11-13 22:24:45.828 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=70
+2025-11-13 22:24:45.911 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:45.959 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=71
+2025-11-13 22:24:45.981 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=164.87105939999992@1763101485957
+2025-11-13 22:24:45.988 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101485957
+2025-11-13 22:24:45.989 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101485957
+2025-11-13 22:24:45.999 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=71
+2025-11-13 22:24:46.064 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:46.070 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=72
+2025-11-13 22:24:46.098 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=166.7580516399994@1763101486065
+2025-11-13 22:24:46.123 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101486065
+2025-11-13 22:24:46.153 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101486065
+2025-11-13 22:24:46.153 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=72
+2025-11-13 22:24:46.223 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:46.251 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=73
+2025-11-13 22:24:46.279 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=168.37779480000108@1763101486244
+2025-11-13 22:24:46.324 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101486244
+2025-11-13 22:24:46.328 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101486244
+2025-11-13 22:24:46.329 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=73
+2025-11-13 22:24:46.392 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:46.425 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=74
+2025-11-13 22:24:46.436 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=169.95987817000014@1763101486424
+2025-11-13 22:24:46.437 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101486424
+2025-11-13 22:24:46.441 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101486424
+2025-11-13 22:24:46.445 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=74
+2025-11-13 22:24:46.508 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:46.566 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=75
+2025-11-13 22:24:46.566 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=170.96559209000134@1763101486534
+2025-11-13 22:24:46.571 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101486534
+2025-11-13 22:24:46.571 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101486534
+2025-11-13 22:24:46.571 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=75
+2025-11-13 22:24:46.674 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:46.677 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=76
+2025-11-13 22:24:46.691 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=172.71376044000135@1763101486675
+2025-11-13 22:24:46.700 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101486675
+2025-11-13 22:24:46.709 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101486675
+2025-11-13 22:24:46.719 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=76
+2025-11-13 22:24:46.743 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:46.759 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=77
+2025-11-13 22:24:46.765 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=173.85204863000126@1763101486757
+2025-11-13 22:24:46.770 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101486757
+2025-11-13 22:24:46.772 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101486757
+2025-11-13 22:24:46.772 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=77
+2025-11-13 22:24:46.852 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:46.891 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=78
+2025-11-13 22:24:46.905 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=174.4294522600012@1763101486871
+2025-11-13 22:24:46.917 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101486871
+2025-11-13 22:24:46.919 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101486871
+2025-11-13 22:24:46.929 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=78
+2025-11-13 22:24:47.003 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:47.010 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=79
+2025-11-13 22:24:47.019 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=176.26840872999992@1763101487009
+2025-11-13 22:24:47.019 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101487009
+2025-11-13 22:24:47.020 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101487009
+2025-11-13 22:24:47.020 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=79
+2025-11-13 22:24:47.079 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:47.120 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=80
+2025-11-13 22:24:47.140 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=176.77492970000003@1763101487120
+2025-11-13 22:24:47.155 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101487120
+2025-11-13 22:24:47.176 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101487120
+2025-11-13 22:24:47.176 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=80
+2025-11-13 22:24:47.259 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:47.304 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=81
+2025-11-13 22:24:47.325 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=178.30785144999936@1763101487304
+2025-11-13 22:24:47.363 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101487304
+2025-11-13 22:24:47.404 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101487304
+2025-11-13 22:24:47.410 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=81
+2025-11-13 22:24:47.503 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:47.534 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=82
+2025-11-13 22:24:47.555 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=179.09559705999982@1763101487533
+2025-11-13 22:24:47.564 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101487533
+2025-11-13 22:24:47.576 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101487533
+2025-11-13 22:24:47.579 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=82
+2025-11-13 22:24:47.644 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:47.655 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=83
+2025-11-13 22:24:47.667 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=177.64805273999855@1763101487645
+2025-11-13 22:24:47.671 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101487645
+2025-11-13 22:24:47.671 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101487645
+2025-11-13 22:24:47.679 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=83
+2025-11-13 22:24:47.768 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:47.778 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=84
+2025-11-13 22:24:47.779 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=176.19125025999892@1763101487777
+2025-11-13 22:24:47.779 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101487777
+2025-11-13 22:24:47.783 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101487777
+2025-11-13 22:24:47.783 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=84
+2025-11-13 22:24:47.854 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:47.855 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=85
+2025-11-13 22:24:47.855 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=175.34702782000068@1763101487855
+2025-11-13 22:24:47.855 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101487855
+2025-11-13 22:24:47.855 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101487855
+2025-11-13 22:24:47.855 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=85
+2025-11-13 22:24:47.943 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:47.952 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=86
+2025-11-13 22:24:47.952 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=174.78141973999982@1763101487951
+2025-11-13 22:24:47.952 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101487951
+2025-11-13 22:24:47.952 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101487951
+2025-11-13 22:24:47.952 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=86
+2025-11-13 22:24:48.003 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:48.028 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=87
+2025-11-13 22:24:48.037 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=173.84837729999845@1763101488027
+2025-11-13 22:24:48.037 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101488027
+2025-11-13 22:24:48.037 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101488027
+2025-11-13 22:24:48.038 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=87
+2025-11-13 22:24:48.095 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:48.103 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=88
+2025-11-13 22:24:48.106 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=173.04612631000055@1763101488103
+2025-11-13 22:24:48.106 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101488103
+2025-11-13 22:24:48.106 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101488103
+2025-11-13 22:24:48.106 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=88
+2025-11-13 22:24:48.149 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:48.151 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=89
+2025-11-13 22:24:48.152 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=172.27884786999994@1763101488149
+2025-11-13 22:24:48.156 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101488149
+2025-11-13 22:24:48.156 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101488149
+2025-11-13 22:24:48.158 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=89
+2025-11-13 22:24:48.188 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:48.219 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=90
+2025-11-13 22:24:48.219 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=171.89888314999962@1763101488212
+2025-11-13 22:24:48.219 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101488212
+2025-11-13 22:24:48.220 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101488212
+2025-11-13 22:24:48.223 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=90
+2025-11-13 22:24:48.259 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:48.280 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=91
+2025-11-13 22:24:48.288 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=171.19379698999865@1763101488279
+2025-11-13 22:24:48.296 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101488279
+2025-11-13 22:24:48.299 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101488279
+2025-11-13 22:24:48.309 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=91
+2025-11-13 22:24:48.360 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:48.375 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=92
+2025-11-13 22:24:48.375 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=170.23854720999907@1763101488372
+2025-11-13 22:24:48.388 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101488372
+2025-11-13 22:24:48.395 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101488372
+2025-11-13 22:24:48.395 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=92
+2025-11-13 22:24:48.512 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:48.540 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=93
+2025-11-13 22:24:48.572 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=169.17046751000044@1763101488540
+2025-11-13 22:24:48.576 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101488540
+2025-11-13 22:24:48.582 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101488540
+2025-11-13 22:24:48.583 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=93
+2025-11-13 22:24:48.651 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:48.670 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=94
+2025-11-13 22:24:48.688 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=167.39528930000006@1763101488663
+2025-11-13 22:24:48.705 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101488663
+2025-11-13 22:24:48.751 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101488663
+2025-11-13 22:24:48.833 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=94
+2025-11-13 22:24:48.915 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:48.921 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=95
+2025-11-13 22:24:48.933 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=164.88205982999943@1763101488918
+2025-11-13 22:24:48.934 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101488918
+2025-11-13 22:24:48.934 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101488918
+2025-11-13 22:24:48.934 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=95
+2025-11-13 22:24:48.970 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:49.121 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=96
+2025-11-13 22:24:49.124 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=164.07312143999889@1763101488992
+2025-11-13 22:24:49.128 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101488992
+2025-11-13 22:24:49.145 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101488992
+2025-11-13 22:24:49.158 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=96
+2025-11-13 22:24:49.251 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:49.252 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=97
+2025-11-13 22:24:49.252 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=161.48253990000057@1763101489252
+2025-11-13 22:24:49.252 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101489252
+2025-11-13 22:24:49.252 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101489252
+2025-11-13 22:24:49.253 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=97
+2025-11-13 22:24:49.293 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:49.340 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=98
+2025-11-13 22:24:49.357 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=160.99216443999921@1763101489336
+2025-11-13 22:24:49.367 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101489336
+2025-11-13 22:24:49.369 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101489336
+2025-11-13 22:24:49.369 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=98
+2025-11-13 22:24:49.419 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:49.420 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=99
+2025-11-13 22:24:49.440 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=159.67500889999883@1763101489420
+2025-11-13 22:24:49.440 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101489420
+2025-11-13 22:24:49.440 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101489420
+2025-11-13 22:24:49.451 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=99
+2025-11-13 22:24:49.500 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:49.504 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=100
+2025-11-13 22:24:49.504 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=158.91117801000064@1763101489504
+2025-11-13 22:24:49.505 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101489504
+2025-11-13 22:24:49.508 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101489504
+2025-11-13 22:24:49.508 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=100
+2025-11-13 22:24:49.534 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:49.536 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=101
+2025-11-13 22:24:49.537 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=158.40901782999936@1763101489536
+2025-11-13 22:24:49.538 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101489536
+2025-11-13 22:24:49.538 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101489536
+2025-11-13 22:24:49.559 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=101
+2025-11-13 22:24:49.583 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:49.588 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=102
+2025-11-13 22:24:49.588 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=157.90994390999913@1763101489588
+2025-11-13 22:24:49.589 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101489588
+2025-11-13 22:24:49.595 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101489588
+2025-11-13 22:24:49.595 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=102
+2025-11-13 22:24:49.648 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:49.658 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=103
+2025-11-13 22:24:49.668 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=157.38122598000018@1763101489651
+2025-11-13 22:24:49.673 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101489651
+2025-11-13 22:24:49.687 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101489651
+2025-11-13 22:24:49.688 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=103
+2025-11-13 22:24:49.764 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:49.770 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=104
+2025-11-13 22:24:49.770 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=156.1419889900003@1763101489769
+2025-11-13 22:24:49.770 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101489769
+2025-11-13 22:24:49.770 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101489769
+2025-11-13 22:24:49.770 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=104
+2025-11-13 22:24:49.812 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:49.815 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=105
+2025-11-13 22:24:49.817 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=155.7805745099995@1763101489815
+2025-11-13 22:24:49.817 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101489815
+2025-11-13 22:24:49.817 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101489815
+2025-11-13 22:24:49.818 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=105
+2025-11-13 22:24:49.851 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:49.863 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=106
+2025-11-13 22:24:49.872 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=155.28550685000027@1763101489862
+2025-11-13 22:24:49.888 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101489862
+2025-11-13 22:24:49.888 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101489862
+2025-11-13 22:24:49.888 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=106
+2025-11-13 22:24:49.902 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:49.903 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=107
+2025-11-13 22:24:49.904 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=154.55431019999878@1763101489903
+2025-11-13 22:24:49.904 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101489903
+2025-11-13 22:24:49.904 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101489903
+2025-11-13 22:24:49.904 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=107
+2025-11-13 22:24:49.950 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:50.122 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=108
+2025-11-13 22:24:50.124 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=154.55431019999878@1763101489956
+2025-11-13 22:24:50.138 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101489956
+2025-11-13 22:24:50.152 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101489956
+2025-11-13 22:24:50.182 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=108
+2025-11-13 22:24:50.264 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:50.280 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=109
+2025-11-13 22:24:50.280 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=151.5949976999991@1763101490277
+2025-11-13 22:24:50.281 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101490277
+2025-11-13 22:24:50.284 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101490277
+2025-11-13 22:24:50.285 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=109
+2025-11-13 22:24:50.326 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [Boot] Using IndexStore.applySnapshot(String) overload
+2025-11-13 22:24:50.332 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) | [IndexStore][Debug] snapshot applied, size=3 v=110
+2025-11-13 22:24:50.351 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current=150.65485222999996@1763101490331
+2025-11-13 22:24:50.352 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current2=1.0@1763101490331
+2025-11-13 22:24:50.355 | INFO    | gauges.system.pipeline.IndexStore.log(IndexStore.java:178) |   current3=100.0@1763101490331
+2025-11-13 22:24:50.369 | INFO    | sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:309) | [IndexStore] snapshot applied (key=current3) v=110

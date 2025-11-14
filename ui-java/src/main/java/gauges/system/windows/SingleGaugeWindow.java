@@ -1,13 +1,19 @@
 package gauges.system.windows;
 
+import java.lang.ref.WeakReference;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import gauges.system.ModeController;
 import gauges.system.WindowManager;
+import gauges.system.pipeline.IndexRouter;
+import gauges.system.pipeline.IndexStore;
+import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -38,6 +44,8 @@ public final class SingleGaugeWindow implements WindowManager.WindowSceneControl
     private final StackPane root = new StackPane();
     private final Pane contentLayer = new Pane();
     private final StackPane overlayLayer = new StackPane();
+
+    private final GaugeBindingManager gaugeBindings = new GaugeBindingManager("[SingleGauge]");
 
     // Stage/shell
     private Stage stage;
@@ -93,6 +101,7 @@ public final class SingleGaugeWindow implements WindowManager.WindowSceneControl
             ModeController.global().removeListener(this.modeListener);
             this.modeListener = null;
         }
+        gaugeBindings.reset();
     }
 
     // Optional: allow WindowManager to mount overlays
@@ -101,6 +110,8 @@ public final class SingleGaugeWindow implements WindowManager.WindowSceneControl
     // ---------------- Rendering logic ----------------
 
     private void rebuildFromModeJson(String ignoredRaw) {
+        gaugeBindings.reset();
+
         String sg = ModeController.global().getSingleGaugeSectionRaw();
         if (sg == null || sg.isEmpty()) {
             contentLayer.getChildren().clear();
@@ -141,10 +152,19 @@ public final class SingleGaugeWindow implements WindowManager.WindowSceneControl
         // Probe config resource presence for dev feedback
         probeResource(spec.configPath);
 
+        // Link live data feed if a bind key is provided
+        if (spec.bindKey != null && !spec.bindKey.isBlank()) {
+            gaugeBindings.register(node, spec.bindKey);
+        } else {
+            System.out.println("[SingleGauge] No bind key provided for " + spec.type);
+        }
+
         // Mount and size to window
         contentLayer.getChildren().setAll(node);
         mountedGauge = node;
         fitGaugeToWindow();
+
+        gaugeBindings.ensureRunning();
 
         System.out.println("[SingleGauge] mounted: type=" + spec.type +
                            " config=" + spec.configPath + " bind=" + spec.bindKey);
@@ -301,6 +321,215 @@ public final class SingleGaugeWindow implements WindowManager.WindowSceneControl
         if (len > 400) {
             System.out.println(tag + " tail=\n" + text.substring(Math.max(0, len - 200)));
         }
+    }
+
+    // ---------------- Gauge binding support ----------------
+
+    private static final class GaugeBindingManager extends AnimationTimer {
+        private final String logPrefix;
+        private final List<GaugeBindingEntry> bindings = new ArrayList<>();
+
+        GaugeBindingManager(String logPrefix) {
+            this.logPrefix = logPrefix == null ? "" : logPrefix.trim();
+        }
+
+        void reset() {
+            stop();
+            bindings.clear();
+        }
+
+        void register(Node node, String bindKey) {
+            if (node == null) return;
+            String key = bindKey == null ? "" : bindKey.trim();
+            if (key.isEmpty()) {
+                System.out.println(logPrefix + " gauge skipped empty bind key for " + node.getClass().getName());
+                return;
+            }
+
+            GaugeBindingEntry entry = GaugeBindingEntry.tryCreate(node, key, logPrefix);
+            if (entry != null) {
+                bindings.add(entry);
+            }
+        }
+
+        void ensureRunning() {
+            if (!bindings.isEmpty()) {
+                start();
+            } else {
+                stop();
+            }
+        }
+
+        @Override
+        public void handle(long now) {
+            if (bindings.isEmpty()) {
+                stop();
+                return;
+            }
+
+            IndexRouter router;
+            try {
+                router = IndexRouter.global();
+            } catch (IllegalStateException missing) {
+                return;
+            }
+
+            bindings.removeIf(entry -> !entry.update(router));
+            if (bindings.isEmpty()) {
+                stop();
+            }
+        }
+    }
+
+    private static final class GaugeBindingEntry {
+        private final WeakReference<Node> nodeRef;
+        private final String key;
+        private final Method method;
+        private final ValueKind kind;
+        private final String logPrefix;
+
+        private boolean dispatched;
+        private double lastDouble = Double.NaN;
+        private String lastString;
+        private IndexStore.DataPoint lastDataPoint;
+
+        private GaugeBindingEntry(Node node, String key, Method method, ValueKind kind, String logPrefix) {
+            this.nodeRef = new WeakReference<>(node);
+            this.key = key;
+            this.method = method;
+            this.kind = kind;
+            this.logPrefix = logPrefix;
+        }
+
+        static GaugeBindingEntry tryCreate(Node node, String key, String logPrefix) {
+            Method m = findMethod(node.getClass(), "setValue", double.class);
+            if (m != null) {
+                return new GaugeBindingEntry(node, key, m, ValueKind.PRIMITIVE_DOUBLE, logPrefix);
+            }
+
+            m = findMethod(node.getClass(), "setValue", Double.class);
+            if (m != null) {
+                return new GaugeBindingEntry(node, key, m, ValueKind.BOXED_DOUBLE, logPrefix);
+            }
+
+            m = findMethod(node.getClass(), "setValue", Number.class);
+            if (m != null) {
+                return new GaugeBindingEntry(node, key, m, ValueKind.NUMBER, logPrefix);
+            }
+
+            m = findMethod(node.getClass(), "setText", String.class);
+            if (m != null) {
+                return new GaugeBindingEntry(node, key, m, ValueKind.STRING, logPrefix);
+            }
+
+            m = findMethod(node.getClass(), "setDataPoint", IndexStore.DataPoint.class);
+            if (m != null) {
+                return new GaugeBindingEntry(node, key, m, ValueKind.DATA_POINT, logPrefix);
+            }
+
+            System.out.println((logPrefix == null ? "" : logPrefix + " ")
+                    + "gauge missing supported setter for " + node.getClass().getName());
+            return null;
+        }
+
+        boolean update(IndexRouter router) {
+            Node node = nodeRef.get();
+            if (node == null) {
+                return false;
+            }
+
+            try {
+                switch (kind) {
+                    case PRIMITIVE_DOUBLE -> updatePrimitiveDouble(node, router);
+                    case BOXED_DOUBLE -> updateBoxedDouble(node, router);
+                    case NUMBER -> updateNumber(node, router);
+                    case STRING -> updateString(node, router);
+                    case DATA_POINT -> updateDataPoint(node, router);
+                }
+            } catch (Throwable t) {
+                System.out.println((logPrefix == null ? "" : logPrefix + " ")
+                        + "gauge bind failed for " + node.getClass().getName() + " key=" + key + " error=" + t);
+                return false;
+            }
+            return true;
+        }
+
+        private void updatePrimitiveDouble(Node node, IndexRouter router) throws Exception {
+            double value = router.getDouble(key);
+            if (!dispatched || compareDoubleChanged(value, lastDouble)) {
+                method.invoke(node, value);
+                lastDouble = value;
+                dispatched = true;
+            }
+        }
+
+        private void updateBoxedDouble(Node node, IndexRouter router) throws Exception {
+            double value = router.getDouble(key);
+            if (!dispatched || compareDoubleChanged(value, lastDouble)) {
+                method.invoke(node, Double.valueOf(value));
+                lastDouble = value;
+                dispatched = true;
+            }
+        }
+
+        private void updateNumber(Node node, IndexRouter router) throws Exception {
+            double value = router.getDouble(key);
+            if (!dispatched || compareDoubleChanged(value, lastDouble)) {
+                method.invoke(node, Double.valueOf(value));
+                lastDouble = value;
+                dispatched = true;
+            }
+        }
+
+        private void updateString(Node node, IndexRouter router) throws Exception {
+            String value = router.getString(key);
+            if (!dispatched || !Objects.equals(value, lastString)) {
+                method.invoke(node, value);
+                lastString = value;
+                dispatched = true;
+            }
+        }
+
+        private void updateDataPoint(Node node, IndexRouter router) throws Exception {
+            IndexStore.DataPoint value = router.getRaw(key);
+            if (!dispatched || !sameDataPoint(value, lastDataPoint)) {
+                method.invoke(node, value);
+                lastDataPoint = value;
+                dispatched = true;
+            }
+        }
+
+        private static boolean compareDoubleChanged(double a, double b) {
+            if (Double.isNaN(a) && Double.isNaN(b)) return false;
+            return Double.compare(a, b) != 0;
+        }
+
+        private static boolean sameDataPoint(IndexStore.DataPoint a, IndexStore.DataPoint b) {
+            if (a == b) return true;
+            if (a == null || b == null) return false;
+            return Double.compare(a.v, b.v) == 0
+                    && a.ts == b.ts
+                    && Objects.equals(a.type, b.type)
+                    && Objects.equals(a.status, b.status);
+        }
+
+        private static Method findMethod(Class<?> cls, String name, Class<?>... types) {
+            try {
+                Method m = cls.getMethod(name, types);
+                m.setAccessible(true);
+                return m;
+            } catch (NoSuchMethodException ignored) {
+                return null;
+            }
+        }
+    }
+
+    private enum ValueKind {
+        PRIMITIVE_DOUBLE,
+        BOXED_DOUBLE,
+        NUMBER,
+        STRING,
+        DATA_POINT
     }
 
     // ---------------- Minimal JSON parser ----------------

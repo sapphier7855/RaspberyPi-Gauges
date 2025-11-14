@@ -1,0 +1,663 @@
+2025-11-13 22:24:39.535 | INFO    | gauges.system.pipeline.IndexStore.<init>(IndexStore.java:40) | [IndexStore] constructed
+2025-11-13 22:24:39.545 | INFO    | gauges.system.pipeline.IndexFetcher.start(IndexFetcher.java:69) | [IndexFetcher] start endpoint=http://127.0.0.1:8000/api/snapshot period=PT0.033S timeout=PT1.5S
+2025-11-13 22:24:39.619 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=1][code=200][bytes=62] body={"current":102.16250884000146,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:39.681 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:39.690 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=1
+2025-11-13 22:24:39.692 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=102.16250884000146@1763101479681
+2025-11-13 22:24:39.695 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101479681
+2025-11-13 22:24:39.701 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101479681
+2025-11-13 22:24:39.709 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=2][code=200][bytes=62] body={"current":103.50182437000058,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:39.712 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:39.714 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=2
+2025-11-13 22:24:39.716 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=103.50182437000058@1763101479711
+2025-11-13 22:24:39.718 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101479711
+2025-11-13 22:24:39.719 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101479711
+2025-11-13 22:24:39.725 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=3][code=200][bytes=62] body={"current":103.61736684000107,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:39.727 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:39.729 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=3
+2025-11-13 22:24:39.731 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=103.61736684000107@1763101479727
+2025-11-13 22:24:39.733 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101479727
+2025-11-13 22:24:39.734 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101479727
+2025-11-13 22:24:39.748 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=4][code=200][bytes=62] body={"current":103.85147367999934,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:39.749 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:39.751 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=4
+2025-11-13 22:24:39.751 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=103.85147367999934@1763101479749
+2025-11-13 22:24:39.757 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101479749
+2025-11-13 22:24:39.772 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101479749
+2025-11-13 22:24:39.800 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=5][code=200][bytes=62] body={"current":104.32650721000073,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:39.816 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:39.818 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=5
+2025-11-13 22:24:39.818 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=104.32650721000073@1763101479816
+2025-11-13 22:24:39.819 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101479816
+2025-11-13 22:24:39.820 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101479816
+2025-11-13 22:24:39.824 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=6][code=200][bytes=62] body={"current":104.67064701000027,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:39.834 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:39.845 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=6
+2025-11-13 22:24:39.846 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=104.67064701000027@1763101479825
+2025-11-13 22:24:39.847 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101479825
+2025-11-13 22:24:39.848 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101479825
+2025-11-13 22:24:39.854 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=7][code=200][bytes=62] body={"current":104.89644047999946,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:39.855 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:39.856 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=7
+2025-11-13 22:24:39.857 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=104.89644047999946@1763101479855
+2025-11-13 22:24:39.857 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101479855
+2025-11-13 22:24:39.861 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101479855
+2025-11-13 22:24:39.867 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=8][code=200][bytes=61] body={"current":105.1032209999994,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:39.869 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:39.870 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=8
+2025-11-13 22:24:39.871 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=105.1032209999994@1763101479869
+2025-11-13 22:24:39.871 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101479869
+2025-11-13 22:24:39.872 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101479869
+2025-11-13 22:24:39.879 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=9][code=200][bytes=62] body={"current":105.21135372000117,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:39.882 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:39.883 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=9
+2025-11-13 22:24:39.884 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=105.21135372000117@1763101479882
+2025-11-13 22:24:39.885 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101479882
+2025-11-13 22:24:39.886 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101479882
+2025-11-13 22:24:39.892 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=10][code=200][bytes=62] body={"current":105.31339293999963,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:39.895 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:39.898 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=10
+2025-11-13 22:24:39.900 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=105.31339293999963@1763101479895
+2025-11-13 22:24:39.901 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101479895
+2025-11-13 22:24:39.903 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101479895
+2025-11-13 22:24:39.912 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=11][code=200][bytes=62] body={"current":105.53509788000156,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:39.917 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:39.920 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=11
+2025-11-13 22:24:39.921 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=105.53509788000156@1763101479916
+2025-11-13 22:24:39.922 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101479916
+2025-11-13 22:24:39.922 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101479916
+2025-11-13 22:24:39.933 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=12][code=200][bytes=62] body={"current":105.75103359999957,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:39.936 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:39.938 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=12
+2025-11-13 22:24:39.939 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=105.75103359999957@1763101479935
+2025-11-13 22:24:39.939 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101479935
+2025-11-13 22:24:39.940 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101479935
+2025-11-13 22:24:39.953 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=13][code=200][bytes=62] body={"current":105.86044194000124,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:39.954 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:39.955 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=13
+2025-11-13 22:24:39.956 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=105.86044194000124@1763101479954
+2025-11-13 22:24:39.956 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101479954
+2025-11-13 22:24:39.957 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101479954
+2025-11-13 22:24:39.989 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=14][code=200][bytes=62] body={"current":106.27930564000053,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:39.991 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:39.992 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=14
+2025-11-13 22:24:39.995 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=106.27930564000053@1763101479991
+2025-11-13 22:24:39.998 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101479991
+2025-11-13 22:24:39.998 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101479991
+2025-11-13 22:24:40.020 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=15][code=200][bytes=62] body={"current":106.50720646000082,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:40.022 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:40.023 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=15
+2025-11-13 22:24:40.025 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=106.50720646000082@1763101480021
+2025-11-13 22:24:40.027 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101480021
+2025-11-13 22:24:40.029 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101480021
+2025-11-13 22:24:40.049 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=16][code=200][bytes=62] body={"current":106.88283291000062,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:40.051 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:40.052 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=16
+2025-11-13 22:24:40.053 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=106.88283291000062@1763101480051
+2025-11-13 22:24:40.054 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101480051
+2025-11-13 22:24:40.054 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101480051
+2025-11-13 22:24:40.121 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=17][code=200][bytes=61] body={"current":107.6204318200007,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:40.129 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:40.132 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=17
+2025-11-13 22:24:40.134 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=107.6204318200007@1763101480128
+2025-11-13 22:24:40.135 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101480128
+2025-11-13 22:24:40.138 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101480128
+2025-11-13 22:24:40.166 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=18][code=200][bytes=62] body={"current":107.93753164999998,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:40.168 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:40.170 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=18
+2025-11-13 22:24:40.176 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=107.93753164999998@1763101480168
+2025-11-13 22:24:40.183 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101480168
+2025-11-13 22:24:40.199 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101480168
+2025-11-13 22:24:40.236 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=19][code=200][bytes=62] body={"current":108.44820656000138,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:40.238 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:40.245 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=19
+2025-11-13 22:24:40.262 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=108.44820656000138@1763101480238
+2025-11-13 22:24:40.262 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101480238
+2025-11-13 22:24:40.263 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101480238
+2025-11-13 22:24:40.333 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=20][code=200][bytes=62] body={"current":109.68868391000115,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:40.342 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:40.343 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=20
+2025-11-13 22:24:40.344 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=109.68868391000115@1763101480341
+2025-11-13 22:24:40.344 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101480341
+2025-11-13 22:24:40.346 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101480341
+2025-11-13 22:24:40.373 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=21][code=200][bytes=62] body={"current":110.03121608000129,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:40.394 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:40.397 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=21
+2025-11-13 22:24:40.399 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=110.03121608000129@1763101480393
+2025-11-13 22:24:40.429 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101480393
+2025-11-13 22:24:40.432 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101480393
+2025-11-13 22:24:40.527 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=22][code=200][bytes=62] body={"current":111.42498210999975,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:40.534 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:40.536 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=22
+2025-11-13 22:24:40.537 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=111.42498210999975@1763101480534
+2025-11-13 22:24:40.538 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101480534
+2025-11-13 22:24:40.539 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101480534
+2025-11-13 22:24:40.616 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=23][code=200][bytes=62] body={"current":111.90153268000131,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:40.639 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:40.639 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=23
+2025-11-13 22:24:40.640 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=111.90153268000131@1763101480639
+2025-11-13 22:24:40.654 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101480639
+2025-11-13 22:24:40.665 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101480639
+2025-11-13 22:24:40.830 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=24][code=200][bytes=62] body={"current":113.60394313000143,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:40.838 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:40.838 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=24
+2025-11-13 22:24:40.839 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=113.60394313000143@1763101480837
+2025-11-13 22:24:40.839 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101480837
+2025-11-13 22:24:40.839 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101480837
+2025-11-13 22:24:40.869 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=25][code=200][bytes=62] body={"current":114.97507463000147,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:40.870 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:40.871 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=25
+2025-11-13 22:24:40.871 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=114.97507463000147@1763101480870
+2025-11-13 22:24:40.871 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101480870
+2025-11-13 22:24:40.872 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101480870
+2025-11-13 22:24:40.879 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=26][code=200][bytes=62] body={"current":115.19670297999937,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:40.890 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:40.898 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=26
+2025-11-13 22:24:40.907 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=115.19670297999937@1763101480890
+2025-11-13 22:24:40.919 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101480890
+2025-11-13 22:24:40.922 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101480890
+2025-11-13 22:24:40.991 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=27][code=200][bytes=62] body={"current":115.96193985000127,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:41.009 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:41.016 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=27
+2025-11-13 22:24:41.037 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=115.96193985000127@1763101481006
+2025-11-13 22:24:41.047 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101481008
+2025-11-13 22:24:41.057 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101481008
+2025-11-13 22:24:41.141 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=28][code=200][bytes=62] body={"current":117.62873949000095,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:41.148 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:41.151 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=28
+2025-11-13 22:24:41.156 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=117.62873949000095@1763101481147
+2025-11-13 22:24:41.164 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101481147
+2025-11-13 22:24:41.167 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101481147
+2025-11-13 22:24:41.206 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=29][code=200][bytes=62] body={"current":118.25447866000104,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:41.214 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:41.215 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=29
+2025-11-13 22:24:41.216 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=118.25447866000104@1763101481214
+2025-11-13 22:24:41.223 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101481214
+2025-11-13 22:24:41.227 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101481214
+2025-11-13 22:24:41.276 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=30][code=200][bytes=62] body={"current":118.88176595000004,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:41.280 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:41.287 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=30
+2025-11-13 22:24:41.293 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=118.88176595000004@1763101481280
+2025-11-13 22:24:41.320 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101481280
+2025-11-13 22:24:41.324 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101481280
+2025-11-13 22:24:41.407 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=31][code=200][bytes=62] body={"current":119.99806013000125,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:41.414 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:41.419 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=31
+2025-11-13 22:24:41.442 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=119.99806013000125@1763101481408
+2025-11-13 22:24:41.443 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101481408
+2025-11-13 22:24:41.444 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101481408
+2025-11-13 22:24:41.478 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=32][code=200][bytes=62] body={"current":120.99445097999933,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:41.497 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:41.503 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=32
+2025-11-13 22:24:41.515 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=120.99445097999933@1763101481492
+2025-11-13 22:24:41.528 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101481492
+2025-11-13 22:24:41.538 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101481492
+2025-11-13 22:24:41.563 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=33][code=200][bytes=62] body={"current":121.96188478000067,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:41.567 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:41.568 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=33
+2025-11-13 22:24:41.575 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=121.96188478000067@1763101481567
+2025-11-13 22:24:41.588 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101481567
+2025-11-13 22:24:41.589 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101481567
+2025-11-13 22:24:41.606 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=34][code=200][bytes=61] body={"current":122.4699782100015,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:41.608 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:41.613 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=34
+2025-11-13 22:24:41.615 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=122.4699782100015@1763101481608
+2025-11-13 22:24:41.615 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101481608
+2025-11-13 22:24:41.616 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101481608
+2025-11-13 22:24:41.621 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=35][code=200][bytes=62] body={"current":122.58215924000069,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:41.622 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:41.623 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=35
+2025-11-13 22:24:41.623 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=122.58215924000069@1763101481622
+2025-11-13 22:24:41.623 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101481622
+2025-11-13 22:24:41.624 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101481622
+2025-11-13 22:24:41.636 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=36][code=200][bytes=62] body={"current":122.68869416000143,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:41.641 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:41.645 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=36
+2025-11-13 22:24:41.647 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=122.68869416000143@1763101481641
+2025-11-13 22:24:41.648 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101481641
+2025-11-13 22:24:41.649 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101481641
+2025-11-13 22:24:41.662 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=37][code=200][bytes=62] body={"current":123.00883014999954,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:41.664 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:41.665 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=37
+2025-11-13 22:24:41.665 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=123.00883014999954@1763101481663
+2025-11-13 22:24:41.666 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101481663
+2025-11-13 22:24:41.666 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101481663
+2025-11-13 22:24:41.672 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=38][code=200][bytes=61] body={"current":123.1167303899997,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:41.674 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:41.674 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=38
+2025-11-13 22:24:41.675 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=123.1167303899997@1763101481673
+2025-11-13 22:24:41.675 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101481673
+2025-11-13 22:24:41.675 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101481673
+2025-11-13 22:24:41.683 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=39][code=200][bytes=62] body={"current":123.23090589000003,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:41.684 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:41.684 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=39
+2025-11-13 22:24:41.685 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=123.23090589000003@1763101481684
+2025-11-13 22:24:41.685 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101481684
+2025-11-13 22:24:41.685 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101481684
+2025-11-13 22:24:41.693 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=40][code=200][bytes=62] body={"current":123.23090589000003,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:41.694 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:41.695 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=40
+2025-11-13 22:24:41.696 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=123.23090589000003@1763101481694
+2025-11-13 22:24:41.696 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101481694
+2025-11-13 22:24:41.697 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101481694
+2025-11-13 22:24:41.732 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=41][code=200][bytes=62] body={"current":123.36024636000047,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:41.740 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:41.746 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=41
+2025-11-13 22:24:41.748 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=123.36024636000047@1763101481739
+2025-11-13 22:24:41.749 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101481739
+2025-11-13 22:24:41.750 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101481739
+2025-11-13 22:24:41.783 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=42][code=200][bytes=62] body={"current":124.20149753000032,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:41.785 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:41.786 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=42
+2025-11-13 22:24:41.787 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=124.20149753000032@1763101481785
+2025-11-13 22:24:41.787 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101481785
+2025-11-13 22:24:41.793 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101481785
+2025-11-13 22:24:41.809 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=43][code=200][bytes=62] body={"current":124.43430357000125,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:41.813 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:41.814 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=43
+2025-11-13 22:24:41.815 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=124.43430357000125@1763101481813
+2025-11-13 22:24:41.815 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101481813
+2025-11-13 22:24:41.816 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101481813
+2025-11-13 22:24:41.822 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=44][code=200][bytes=62] body={"current":124.54934976999994,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:41.822 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:41.823 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=44
+2025-11-13 22:24:41.823 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=124.54934976999994@1763101481822
+2025-11-13 22:24:41.824 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101481822
+2025-11-13 22:24:41.824 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101481822
+2025-11-13 22:24:41.833 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=45][code=200][bytes=62] body={"current":124.65668869999945,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:41.834 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:41.835 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=45
+2025-11-13 22:24:41.835 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=124.65668869999945@1763101481834
+2025-11-13 22:24:41.835 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101481834
+2025-11-13 22:24:41.836 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101481834
+2025-11-13 22:24:41.853 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=46][code=200][bytes=62] body={"current":124.76836939000123,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:41.854 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:41.855 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=46
+2025-11-13 22:24:41.855 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=124.76836939000123@1763101481854
+2025-11-13 22:24:41.856 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101481854
+2025-11-13 22:24:41.856 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101481854
+2025-11-13 22:24:41.863 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=47][code=200][bytes=62] body={"current":125.03538714000115,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:41.864 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:41.867 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=47
+2025-11-13 22:24:41.868 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=125.03538714000115@1763101481864
+2025-11-13 22:24:41.873 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101481864
+2025-11-13 22:24:41.874 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101481864
+2025-11-13 22:24:41.997 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=48][code=200][bytes=62] body={"current":125.81638423999948,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:42.000 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:42.001 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=48
+2025-11-13 22:24:42.001 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=125.81638423999948@1763101482000
+2025-11-13 22:24:42.005 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101482000
+2025-11-13 22:24:42.005 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101482000
+2025-11-13 22:24:42.169 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=49][code=200][bytes=62] body={"current":127.81165282000075,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:42.172 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:42.172 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=49
+2025-11-13 22:24:42.172 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=127.81165282000075@1763101482170
+2025-11-13 22:24:42.173 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101482170
+2025-11-13 22:24:42.173 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101482170
+2025-11-13 22:24:42.234 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=50][code=200][bytes=62] body={"current":128.39157340000156,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:42.272 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:42.298 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=50
+2025-11-13 22:24:42.358 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=128.39157340000156@1763101482271
+2025-11-13 22:24:42.359 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101482271
+2025-11-13 22:24:42.360 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101482271
+2025-11-13 22:24:43.108 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=51][code=200][bytes=62] body={"current":137.46855102000154,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:43.110 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:43.111 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=51
+2025-11-13 22:24:43.112 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=137.46855102000154@1763101483110
+2025-11-13 22:24:43.113 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101483110
+2025-11-13 22:24:43.113 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101483110
+2025-11-13 22:24:43.228 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=52][code=200][bytes=62] body={"current":137.93514937000054,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:43.235 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:43.236 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=52
+2025-11-13 22:24:43.237 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=137.93514937000054@1763101483235
+2025-11-13 22:24:43.237 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101483235
+2025-11-13 22:24:43.237 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101483235
+2025-11-13 22:24:43.268 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=53][code=200][bytes=62] body={"current":138.91447024999934,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:43.284 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:43.288 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=53
+2025-11-13 22:24:43.289 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=138.91447024999934@1763101483284
+2025-11-13 22:24:43.299 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101483284
+2025-11-13 22:24:43.302 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101483284
+2025-11-13 22:24:43.364 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=54][code=200][bytes=62] body={"current":139.65922782999996,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:43.371 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:43.372 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=54
+2025-11-13 22:24:43.379 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=139.65922782999996@1763101483371
+2025-11-13 22:24:43.385 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101483371
+2025-11-13 22:24:43.407 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101483371
+2025-11-13 22:24:43.498 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=55][code=200][bytes=60] body={"current":140.923706210001,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:43.507 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:43.523 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=55
+2025-11-13 22:24:43.532 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=140.923706210001@1763101483507
+2025-11-13 22:24:43.535 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101483507
+2025-11-13 22:24:43.545 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101483507
+2025-11-13 22:24:43.627 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=56][code=200][bytes=62] body={"current":142.10385439999982,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:43.639 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:43.643 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=56
+2025-11-13 22:24:43.644 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=142.10385439999982@1763101483639
+2025-11-13 22:24:43.652 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101483639
+2025-11-13 22:24:43.662 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101483639
+2025-11-13 22:24:43.917 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=57][code=200][bytes=62] body={"current":145.36926404000042,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:43.920 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:43.931 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=57
+2025-11-13 22:24:43.939 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=145.36926404000042@1763101483920
+2025-11-13 22:24:43.946 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101483920
+2025-11-13 22:24:43.946 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101483920
+2025-11-13 22:24:44.029 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=58][code=200][bytes=62] body={"current":146.04366719000154,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:44.048 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:44.051 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=58
+2025-11-13 22:24:44.051 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=146.04366719000154@1763101484047
+2025-11-13 22:24:44.054 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101484047
+2025-11-13 22:24:44.054 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101484047
+2025-11-13 22:24:44.089 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=59][code=200][bytes=62] body={"current":147.08484975000147,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:44.099 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:44.100 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=59
+2025-11-13 22:24:44.103 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=147.08484975000147@1763101484099
+2025-11-13 22:24:44.126 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101484099
+2025-11-13 22:24:44.134 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101484099
+2025-11-13 22:24:44.264 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=60][code=200][bytes=62] body={"current":148.92875766000088,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:44.341 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:44.342 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=60
+2025-11-13 22:24:44.356 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=148.92875766000088@1763101484341
+2025-11-13 22:24:44.357 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101484341
+2025-11-13 22:24:44.359 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101484341
+2025-11-13 22:24:44.407 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=61][code=200][bytes=62] body={"current":150.31582742999944,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:44.408 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:44.421 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=61
+2025-11-13 22:24:44.435 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=150.31582742999944@1763101484408
+2025-11-13 22:24:44.436 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101484408
+2025-11-13 22:24:44.503 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101484408
+2025-11-13 22:24:44.723 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=62][code=200][bytes=61] body={"current":153.3218931600004,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:44.730 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:44.730 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=62
+2025-11-13 22:24:44.731 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=153.3218931600004@1763101484729
+2025-11-13 22:24:44.731 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101484729
+2025-11-13 22:24:44.731 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101484729
+2025-11-13 22:24:44.843 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=63][code=200][bytes=62] body={"current":154.10922300000038,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:44.850 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:44.867 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=63
+2025-11-13 22:24:44.895 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=154.10922300000038@1763101484849
+2025-11-13 22:24:44.908 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101484849
+2025-11-13 22:24:44.924 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101484849
+2025-11-13 22:24:45.074 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=64][code=200][bytes=62] body={"current":156.05174128000044,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:45.103 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:45.103 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=64
+2025-11-13 22:24:45.103 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=156.05174128000044@1763101485103
+2025-11-13 22:24:45.104 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101485103
+2025-11-13 22:24:45.104 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101485103
+2025-11-13 22:24:45.213 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=65][code=200][bytes=62] body={"current":157.91775546000054,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:45.224 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:45.226 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=65
+2025-11-13 22:24:45.226 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=157.91775546000054@1763101485224
+2025-11-13 22:24:45.227 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101485224
+2025-11-13 22:24:45.227 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101485224
+2025-11-13 22:24:45.285 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=66][code=200][bytes=62] body={"current":159.01649172000134,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:45.290 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:45.330 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=66
+2025-11-13 22:24:45.331 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=159.01649172000134@1763101485290
+2025-11-13 22:24:45.331 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101485290
+2025-11-13 22:24:45.331 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101485290
+2025-11-13 22:24:45.371 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=67][code=200][bytes=62] body={"current":159.75208575000124,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:45.388 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:45.389 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=67
+2025-11-13 22:24:45.391 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=159.75208575000124@1763101485384
+2025-11-13 22:24:45.412 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101485384
+2025-11-13 22:24:45.416 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101485384
+2025-11-13 22:24:45.490 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=68][code=200][bytes=62] body={"current":160.99041716000102,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:45.500 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:45.540 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=68
+2025-11-13 22:24:45.550 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=160.99041716000102@1763101485500
+2025-11-13 22:24:45.560 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101485500
+2025-11-13 22:24:45.562 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101485500
+2025-11-13 22:24:45.620 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=69][code=200][bytes=62] body={"current":162.21743841000034,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:45.628 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:45.641 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=69
+2025-11-13 22:24:45.641 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=162.21743841000034@1763101485624
+2025-11-13 22:24:45.652 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101485624
+2025-11-13 22:24:45.664 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101485624
+2025-11-13 22:24:45.776 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=70][code=200][bytes=62] body={"current":163.92370792000065,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:45.781 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:45.783 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=70
+2025-11-13 22:24:45.784 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=163.92370792000065@1763101485781
+2025-11-13 22:24:45.804 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101485781
+2025-11-13 22:24:45.820 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101485781
+2025-11-13 22:24:45.900 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=71][code=200][bytes=62] body={"current":164.87105939999992,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:45.959 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:45.979 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=71
+2025-11-13 22:24:45.988 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=164.87105939999992@1763101485957
+2025-11-13 22:24:45.989 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101485957
+2025-11-13 22:24:45.998 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101485957
+2025-11-13 22:24:46.063 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=72][code=200][bytes=61] body={"current":166.7580516399994,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:46.066 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:46.078 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=72
+2025-11-13 22:24:46.122 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=166.7580516399994@1763101486065
+2025-11-13 22:24:46.153 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101486065
+2025-11-13 22:24:46.153 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101486065
+2025-11-13 22:24:46.223 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=73][code=200][bytes=62] body={"current":168.37779480000108,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:46.244 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:46.269 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=73
+2025-11-13 22:24:46.317 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=168.37779480000108@1763101486244
+2025-11-13 22:24:46.327 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101486244
+2025-11-13 22:24:46.329 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101486244
+2025-11-13 22:24:46.390 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=74][code=200][bytes=62] body={"current":169.95987817000014,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:46.424 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:46.435 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=74
+2025-11-13 22:24:46.437 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=169.95987817000014@1763101486424
+2025-11-13 22:24:46.440 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101486424
+2025-11-13 22:24:46.444 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101486424
+2025-11-13 22:24:46.504 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=75][code=200][bytes=62] body={"current":170.96559209000134,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:46.535 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:46.566 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=75
+2025-11-13 22:24:46.571 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=170.96559209000134@1763101486534
+2025-11-13 22:24:46.571 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101486534
+2025-11-13 22:24:46.571 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101486534
+2025-11-13 22:24:46.671 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=76][code=200][bytes=62] body={"current":172.71376044000135,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:46.676 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:46.688 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=76
+2025-11-13 22:24:46.692 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=172.71376044000135@1763101486675
+2025-11-13 22:24:46.705 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101486675
+2025-11-13 22:24:46.715 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101486675
+2025-11-13 22:24:46.742 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=77][code=200][bytes=62] body={"current":173.85204863000126,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:46.758 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:46.759 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=77
+2025-11-13 22:24:46.770 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=173.85204863000126@1763101486757
+2025-11-13 22:24:46.770 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101486757
+2025-11-13 22:24:46.772 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101486757
+2025-11-13 22:24:46.852 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=78][code=200][bytes=61] body={"current":174.4294522600012,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:46.884 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:46.900 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=78
+2025-11-13 22:24:46.915 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=174.4294522600012@1763101486871
+2025-11-13 22:24:46.918 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101486871
+2025-11-13 22:24:46.925 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101486871
+2025-11-13 22:24:47.003 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=79][code=200][bytes=62] body={"current":176.26840872999992,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:47.010 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:47.010 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=79
+2025-11-13 22:24:47.019 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=176.26840872999992@1763101487009
+2025-11-13 22:24:47.020 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101487009
+2025-11-13 22:24:47.020 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101487009
+2025-11-13 22:24:47.073 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=80][code=200][bytes=62] body={"current":176.77492970000003,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:47.120 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:47.134 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=80
+2025-11-13 22:24:47.155 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=176.77492970000003@1763101487120
+2025-11-13 22:24:47.175 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101487120
+2025-11-13 22:24:47.176 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101487120
+2025-11-13 22:24:47.258 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=81][code=200][bytes=62] body={"current":178.30785144999936,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:47.304 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:47.325 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=81
+2025-11-13 22:24:47.362 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=178.30785144999936@1763101487304
+2025-11-13 22:24:47.401 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101487304
+2025-11-13 22:24:47.405 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101487304
+2025-11-13 22:24:47.502 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=82][code=200][bytes=62] body={"current":179.09559705999982,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:47.534 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:47.549 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=82
+2025-11-13 22:24:47.564 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=179.09559705999982@1763101487533
+2025-11-13 22:24:47.576 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101487533
+2025-11-13 22:24:47.576 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101487533
+2025-11-13 22:24:47.643 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=83][code=200][bytes=62] body={"current":177.64805273999855,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:47.654 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:47.664 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=83
+2025-11-13 22:24:47.671 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=177.64805273999855@1763101487645
+2025-11-13 22:24:47.671 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101487645
+2025-11-13 22:24:47.671 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101487645
+2025-11-13 22:24:47.768 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=84][code=200][bytes=62] body={"current":176.19125025999892,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:47.777 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:47.778 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=84
+2025-11-13 22:24:47.779 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=176.19125025999892@1763101487777
+2025-11-13 22:24:47.779 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101487777
+2025-11-13 22:24:47.783 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101487777
+2025-11-13 22:24:47.854 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=85][code=200][bytes=62] body={"current":175.34702782000068,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:47.855 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:47.855 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=85
+2025-11-13 22:24:47.855 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=175.34702782000068@1763101487855
+2025-11-13 22:24:47.855 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101487855
+2025-11-13 22:24:47.855 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101487855
+2025-11-13 22:24:47.942 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=86][code=200][bytes=62] body={"current":174.78141973999982,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:47.951 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:47.952 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=86
+2025-11-13 22:24:47.952 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=174.78141973999982@1763101487951
+2025-11-13 22:24:47.952 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101487951
+2025-11-13 22:24:47.952 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101487951
+2025-11-13 22:24:48.003 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=87][code=200][bytes=62] body={"current":173.84837729999845,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:48.028 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:48.036 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=87
+2025-11-13 22:24:48.037 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=173.84837729999845@1763101488027
+2025-11-13 22:24:48.037 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101488027
+2025-11-13 22:24:48.037 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101488027
+2025-11-13 22:24:48.092 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=88][code=200][bytes=62] body={"current":173.04612631000055,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:48.103 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:48.105 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=88
+2025-11-13 22:24:48.106 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=173.04612631000055@1763101488103
+2025-11-13 22:24:48.106 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101488103
+2025-11-13 22:24:48.106 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101488103
+2025-11-13 22:24:48.148 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=89][code=200][bytes=62] body={"current":172.27884786999994,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:48.149 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:48.152 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=89
+2025-11-13 22:24:48.156 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=172.27884786999994@1763101488149
+2025-11-13 22:24:48.156 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101488149
+2025-11-13 22:24:48.156 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101488149
+2025-11-13 22:24:48.188 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=90][code=200][bytes=62] body={"current":171.89888314999962,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:48.213 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:48.219 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=90
+2025-11-13 22:24:48.219 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=171.89888314999962@1763101488212
+2025-11-13 22:24:48.220 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101488212
+2025-11-13 22:24:48.221 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101488212
+2025-11-13 22:24:48.259 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=91][code=200][bytes=62] body={"current":171.19379698999865,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:48.280 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:48.285 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=91
+2025-11-13 22:24:48.295 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=171.19379698999865@1763101488279
+2025-11-13 22:24:48.296 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101488279
+2025-11-13 22:24:48.308 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101488279
+2025-11-13 22:24:48.359 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=92][code=200][bytes=62] body={"current":170.23854720999907,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:48.374 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:48.375 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=92
+2025-11-13 22:24:48.375 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=170.23854720999907@1763101488372
+2025-11-13 22:24:48.394 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101488372
+2025-11-13 22:24:48.395 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101488372
+2025-11-13 22:24:48.511 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=93][code=200][bytes=62] body={"current":169.17046751000044,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:48.540 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:48.565 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=93
+2025-11-13 22:24:48.575 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=169.17046751000044@1763101488540
+2025-11-13 22:24:48.582 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101488540
+2025-11-13 22:24:48.583 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101488540
+2025-11-13 22:24:48.650 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=94][code=200][bytes=62] body={"current":167.39528930000006,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:48.668 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:48.688 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=94
+2025-11-13 22:24:48.701 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=167.39528930000006@1763101488663
+2025-11-13 22:24:48.712 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101488663
+2025-11-13 22:24:48.833 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101488663
+2025-11-13 22:24:48.911 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=95][code=200][bytes=62] body={"current":164.88205982999943,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:48.921 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:48.933 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=95
+2025-11-13 22:24:48.934 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=164.88205982999943@1763101488918
+2025-11-13 22:24:48.934 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101488918
+2025-11-13 22:24:48.934 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101488918
+2025-11-13 22:24:48.969 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=96][code=200][bytes=62] body={"current":164.07312143999889,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:48.992 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:49.124 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=96
+2025-11-13 22:24:49.125 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=164.07312143999889@1763101488992
+2025-11-13 22:24:49.135 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101488992
+2025-11-13 22:24:49.157 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101488992
+2025-11-13 22:24:49.251 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=97][code=200][bytes=62] body={"current":161.48253990000057,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:49.252 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:49.252 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=97
+2025-11-13 22:24:49.252 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=161.48253990000057@1763101489252
+2025-11-13 22:24:49.252 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101489252
+2025-11-13 22:24:49.252 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101489252
+2025-11-13 22:24:49.293 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=98][code=200][bytes=62] body={"current":160.99216443999921,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:49.336 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:49.343 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=98
+2025-11-13 22:24:49.364 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=160.99216443999921@1763101489336
+2025-11-13 22:24:49.369 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101489336
+2025-11-13 22:24:49.369 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101489336
+2025-11-13 22:24:49.419 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=99][code=200][bytes=62] body={"current":159.67500889999883,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:49.420 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:49.420 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=99
+2025-11-13 22:24:49.440 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=159.67500889999883@1763101489420
+2025-11-13 22:24:49.440 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101489420
+2025-11-13 22:24:49.440 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101489420
+2025-11-13 22:24:49.499 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=100][code=200][bytes=62] body={"current":158.91117801000064,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:49.504 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:49.504 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=100
+2025-11-13 22:24:49.504 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=158.91117801000064@1763101489504
+2025-11-13 22:24:49.508 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101489504
+2025-11-13 22:24:49.508 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101489504
+2025-11-13 22:24:49.532 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=101][code=200][bytes=62] body={"current":158.40901782999936,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:49.536 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:49.537 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=101
+2025-11-13 22:24:49.538 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=158.40901782999936@1763101489536
+2025-11-13 22:24:49.538 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101489536
+2025-11-13 22:24:49.538 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101489536
+2025-11-13 22:24:49.583 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=102][code=200][bytes=62] body={"current":157.90994390999913,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:49.588 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:49.588 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=102
+2025-11-13 22:24:49.589 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=157.90994390999913@1763101489588
+2025-11-13 22:24:49.594 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101489588
+2025-11-13 22:24:49.595 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101489588
+2025-11-13 22:24:49.645 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=103][code=200][bytes=62] body={"current":157.38122598000018,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:49.655 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:49.668 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=103
+2025-11-13 22:24:49.673 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=157.38122598000018@1763101489651
+2025-11-13 22:24:49.674 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101489651
+2025-11-13 22:24:49.687 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101489651
+2025-11-13 22:24:49.764 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=104][code=200][bytes=61] body={"current":156.1419889900003,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:49.769 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:49.770 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=104
+2025-11-13 22:24:49.770 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=156.1419889900003@1763101489769
+2025-11-13 22:24:49.770 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101489769
+2025-11-13 22:24:49.770 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101489769
+2025-11-13 22:24:49.809 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=105][code=200][bytes=61] body={"current":155.7805745099995,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:49.815 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:49.817 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=105
+2025-11-13 22:24:49.817 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=155.7805745099995@1763101489815
+2025-11-13 22:24:49.817 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101489815
+2025-11-13 22:24:49.817 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101489815
+2025-11-13 22:24:49.851 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=106][code=200][bytes=62] body={"current":155.28550685000027,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:49.862 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:49.872 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=106
+2025-11-13 22:24:49.888 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=155.28550685000027@1763101489862
+2025-11-13 22:24:49.888 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101489862
+2025-11-13 22:24:49.888 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101489862
+2025-11-13 22:24:49.902 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=107][code=200][bytes=62] body={"current":154.55431019999878,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:49.903 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:49.904 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=107
+2025-11-13 22:24:49.904 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=154.55431019999878@1763101489903
+2025-11-13 22:24:49.904 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101489903
+2025-11-13 22:24:49.904 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101489903
+2025-11-13 22:24:49.949 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=108][code=200][bytes=62] body={"current":154.55431019999878,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:49.956 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:50.123 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=108
+2025-11-13 22:24:50.124 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=154.55431019999878@1763101489956
+2025-11-13 22:24:50.152 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101489956
+2025-11-13 22:24:50.182 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101489956
+2025-11-13 22:24:50.264 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=109][code=200][bytes=61] body={"current":151.5949976999991,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:50.277 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:50.280 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=109
+2025-11-13 22:24:50.280 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=151.5949976999991@1763101490277
+2025-11-13 22:24:50.281 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101490277
+2025-11-13 22:24:50.284 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101490277
+2025-11-13 22:24:50.326 | INFO    | gauges.system.pipeline.IndexFetcher.fetchOnce(IndexFetcher.java:121) | [IndexFetcher][tick=110][code=200][bytes=62] body={"current":150.65485222999996,"current2":1.0,"current3":100.0}
+2025-11-13 22:24:50.331 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:89) | [IndexStore] applying parsed snapshot entries=3
+2025-11-13 22:24:50.337 | INFO    | gauges.system.pipeline.IndexFetcher.stop(IndexFetcher.java:77) | [IndexFetcher] stop requested (inFlight=true)
+2025-11-13 22:24:50.351 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:137) | [IndexStore][Debug] snapshot applied, size=3 v=110
+2025-11-13 22:24:50.351 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current=150.65485222999996@1763101490331
+2025-11-13 22:24:50.352 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current2=1.0@1763101490331
+2025-11-13 22:24:50.364 | INFO    | gauges.system.pipeline.IndexStore.applySnapshot(IndexStore.java:141) |   current3=100.0@1763101490331

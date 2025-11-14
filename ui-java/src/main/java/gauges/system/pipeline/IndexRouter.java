@@ -21,6 +21,8 @@ public final class IndexRouter {
     // --------------------------------------------------------------------------------------------
     private static volatile IndexRouter GLOBAL;
 
+    private static final PipelineDebugLog PIPELINE_LOG = PipelineDebugLog.shared();
+
     public static void install(IndexStore store) {
         GLOBAL = new IndexRouter(store);
         log("[IndexRouter] installed");
@@ -55,27 +57,35 @@ public final class IndexRouter {
     /** Raw DataPoint (or null). */
     public IndexStore.DataPoint getRaw(String key) {
         String k = resolveKey(key);
-        return store.get(k);
+        IndexStore.DataPoint dp = store.get(k);
+        logAccess("getRaw", k, dp);
+        return dp;
     }
 
     /** Double value (NaN if missing). */
     public double getDouble(String key) {
         String k = resolveKey(key);
-        return store.getDouble(k);
+        double value = store.getDouble(k);
+        logAccess("getDouble", k, value);
+        return value;
     }
 
     /** Int value (rounds the double; returns 0 if NaN/missing). */
     public int getInt(String key) {
-        double v = getDouble(key);
-        if (Double.isNaN(v)) return 0;
-        return (int) Math.round(v);
+        String k = resolveKey(key);
+        double raw = store.getDouble(k);
+        int value = Double.isNaN(raw) ? 0 : (int) Math.round(raw);
+        logAccess("getInt", k, value + " (raw=" + raw + ")");
+        return value;
     }
 
     /** Boolean value: nonzero => true; zero/NaN => false. */
     public boolean getBoolean(String key) {
-        double v = getDouble(key);
-        if (Double.isNaN(v)) return false;
-        return Math.abs(v) > 1e-12;
+        String k = resolveKey(key);
+        double raw = store.getDouble(k);
+        boolean result = !Double.isNaN(raw) && Math.abs(raw) > 1e-12;
+        logAccess("getBoolean", k, result + " (raw=" + raw + ")");
+        return result;
     }
 
     /** String value:
@@ -83,13 +93,26 @@ public final class IndexRouter {
      *  - else returns the numeric value as String (or "" if missing)
      */
     public String getString(String key) {
-        IndexStore.DataPoint dp = getRaw(key);
-        if (dp == null) return "";
-        if ("text".equals(dp.type)) {
-            return dp.status == null ? "" : dp.status;
+        String k = resolveKey(key);
+        IndexStore.DataPoint dp = store.get(k);
+        if (dp == null) {
+            String value = "";
+            logAccess("getString", k, value + " (missing)");
+            return value;
         }
-        if (Double.isNaN(dp.v)) return "";
-        return String.valueOf(dp.v);
+        if ("text".equals(dp.type)) {
+            String value = dp.status == null ? "" : dp.status;
+            logAccess("getString", k, value + " (type=text)");
+            return value;
+        }
+        if (Double.isNaN(dp.v)) {
+            String value = "";
+            logAccess("getString", k, value + " (NaN)");
+            return value;
+        }
+        String value = String.valueOf(dp.v);
+        logAccess("getString", k, value + " (type=" + dp.type + ")");
+        return value;
     }
 
     // --------------------------------------------------------------------------------------------
@@ -110,6 +133,11 @@ public final class IndexRouter {
         } catch (Throwable ignore) {
             System.out.println(msg);
         }
+    }
+
+    private static void logAccess(String method, String key, Object value) {
+        String message = "[IndexRouter][" + method + "] " + key + " -> " + String.valueOf(value);
+        PIPELINE_LOG.info(message);
     }
 }
 

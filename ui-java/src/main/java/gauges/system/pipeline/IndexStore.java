@@ -27,8 +27,11 @@ public final class IndexStore {
     // Optional listener (e.g., for UI invalidation). Called after apply.
     private volatile Consumer<String> onChange;
 
+    private static final PipelineDebugLog PIPELINE_LOG = PipelineDebugLog.shared();
+
     public IndexStore() {
         log("[IndexStore] constructed");
+        PIPELINE_LOG.info("[IndexStore] constructed");
     }
 
     /** Optional: set a callback invoked after each update (key of last-updated or \"*\"). */
@@ -75,8 +78,11 @@ public final class IndexStore {
         // --- Debug: print the FULL storage index (sorted) every time it’s updated ---
         Map<String, DataPoint> snap = sortedCopy(data);
         log("[IndexStore][Debug] snapshot applied, size=" + snap.size() + " v=" + vnow);
+        PIPELINE_LOG.info("[IndexStore][Debug] snapshot applied, size=" + snap.size() + " v=" + vnow);
         for (Map.Entry<String, DataPoint> e : snap.entrySet()) {
-            log("  " + e.getKey() + "=" + e.getValue());
+            String line = "  " + e.getKey() + "=" + e.getValue();
+            log(line);
+            PIPELINE_LOG.info(line);
         }
 
         Consumer<String> cb = onChange;

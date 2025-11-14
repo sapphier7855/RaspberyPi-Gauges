@@ -14,6 +14,9 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Consumer;
+import java.util.logging.Level;
+
+import gauges.system.Logger;
 
 /**
  * IndexFetcher
@@ -22,6 +25,8 @@ import java.util.function.Consumer;
  * Clean version with minimal logging.
  */
 public final class IndexFetcher {
+
+    private static final String PIPE_CATEGORY = "data-pipline";
 
     private final URI endpoint;
     private final Duration period;
@@ -49,12 +54,16 @@ public final class IndexFetcher {
             t.setDaemon(true);
             return t;
         });
+
+        info("[fetcher] constructed endpoint=" + endpoint + ", period="
+                + period.toMillis() + "ms, timeout=" + timeout.toMillis() + "ms");
     }
 
     public synchronized void start() {
         if (running) return;
         stopping = false;
         running  = true;
+        info("[fetcher] start requested");
         task = scheduler.scheduleAtFixedRate(this::safeFetchOnce, 0L, period.toMillis(), TimeUnit.MILLISECONDS);
     }
 
@@ -62,6 +71,7 @@ public final class IndexFetcher {
         if (!running && !stopping) return;
         stopping = true;
         running  = false;
+        info("[fetcher] stop requested");
         if (task != null) {
             task.cancel(true);
             task = null;
@@ -77,10 +87,11 @@ public final class IndexFetcher {
     private void safeFetchOnce() {
         if (!running) return;
         if (!inFlight.compareAndSet(false, true)) return;
+        long seq = tickCount + 1;
         try {
             fetchOnce();
         } catch (Throwable t) {
-            // ignore unexpected exceptions quietly
+            logFailure(seq, t);
         } finally {
             inFlight.set(false);
         }
@@ -101,18 +112,94 @@ public final class IndexFetcher {
             int code = resp.statusCode();
             byte[] body = resp.body();
             int len = (body == null ? 0 : body.length);
+            String text = (len > 0) ? new String(body, StandardCharsets.UTF_8) : "";
 
             if (code >= 200 && code < 300 && len > 0) {
-                String text = new String(body, StandardCharsets.UTF_8);
                 try {
                     onSnapshot.accept(text);
                 } catch (Throwable ignored) { }
             }
+            logSnapshot(seq, code, len, text);
 
         } catch (InterruptedException ie) {
             Thread.currentThread().interrupt();
+            logFailure(seq, ie);
         } catch (IOException ignored) {
+            logFailure(seq, ignored);
         } catch (Throwable ignored) {
+            logFailure(seq, ignored);
+        }
+    }
+
+    private void logSnapshot(long tick, int status, int length, String body) {
+        info("[fetcher] tick=" + tick + ", status=" + status + ", length=" + length);
+        if (body != null && !body.isEmpty()) {
+            info("[fetcher] body:\n" + indent(body));
+        }
+    }
+
+    private void logFailure(long tick, Throwable error) {
+        String message = "[fetcher][error] tick=" + tick + ", error=" + describe(error);
+        error(message);
+        if (error != null) {
+            error(stackTrace(error));
+        }
+    }
+
+    private static String indent(String body) {
+        return body.replaceAll("(?m)^", "  ");
+    }
+
+    private static String describe(Throwable t) {
+        if (t == null) return "<null>";
+        return t.getClass().getSimpleName() + ": " + t.getMessage();
+    }
+
+    private static String stackTrace(Throwable t) {
+        if (t == null) return "";
+        StringBuilder sb = new StringBuilder();
+        sb.append(t);
+        for (StackTraceElement el : t.getStackTrace()) {
+            sb.append(System.lineSeparator()).append("    at ").append(el);
+        }
+        Throwable cause = t.getCause();
+        if (cause != null && cause != t) {
+            sb.append(System.lineSeparator()).append("Caused by: ").append(stackTrace(cause));
+        }
+        return sb.toString();
+    }
+
+    private static void info(String message) {
+        log(Level.INFO, message);
+    }
+
+    private static void error(String message) {
+        log(Level.SEVERE, message);
+    }
+
+    private static void log(Level level, String message) {
+        if (isLoggerActive()) {
+            if (level == Level.SEVERE) {
+                Logger.error(PIPE_CATEGORY, message);
+            } else if (level == Level.WARNING) {
+                Logger.warn(PIPE_CATEGORY, message);
+            } else {
+                Logger.info(PIPE_CATEGORY, message);
+            }
+        } else {
+            if (level == Level.SEVERE) {
+                System.err.println(message);
+            } else {
+                System.out.println(message);
+            }
+        }
+    }
+
+    private static boolean isLoggerActive() {
+        try {
+            return Logger.isActive();
+        } catch (Throwable ignore) {
+            return false;
         }
     }
 }

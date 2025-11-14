@@ -16,8 +16,13 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
@@ -29,7 +34,9 @@ import java.util.logging.LogRecord;
  * yyyy-MM-dd HH:mm:ss.SSS | LEVEL   | Class.method(File:Line) | message
  *
  * Usage (early in App.java main or init):
- *   Logger.start(Paths.get("logs/app.log"));  // creates parent dirs if needed
+ *   Logger.start(Paths.get("logs/app.log"));
+ *   // or Logger.start(Paths.get("logs/app.log"), Paths.get("logs/master.log"));
+ *   // (all variants create parent directories if needed)
  *   Logger.quietJavaFX(dev);                  // <<< add this to suppress JavaFX chatter
  *   // ... your app ...
  *   Logger.stop(); // optional, also done by shutdown hook
@@ -40,7 +47,7 @@ public final class Logger {
 
     /** Start logging everything printed to the terminal into the given file. */
     public static synchronized void start(Path logFile) {
-        start(logFile, /*echoMinimalToStderr*/ false);
+        start(logFile, null, /*echoMinimalToStderr*/ false);
     }
 
     /**
@@ -48,15 +55,43 @@ public final class Logger {
      * to the real terminal; everything else goes to the log.
      */
     public static synchronized void start(Path logFile, boolean echoMinimalToStderr) {
+        start(logFile, null, echoMinimalToStderr);
+    }
+
+    /** Start logging into a primary log file and mirror every entry to masterLogFile. */
+    public static synchronized void start(Path logFile, Path masterLogFile) {
+        start(logFile, masterLogFile, /*echoMinimalToStderr*/ false);
+    }
+
+    /**
+     * Start logging into a primary log file and mirror entries into masterLogFile when provided.
+     */
+    public static synchronized void start(Path logFile,
+                                          Path masterLogFile,
+                                          boolean echoMinimalToStderr) {
         if (STARTED.get()) return;
         Objects.requireNonNull(logFile, "logFile");
 
-        try {
-            Path parent = logFile.toAbsolutePath().getParent();
-            if (parent != null) Files.createDirectories(parent);
+        List<Path> targets = new ArrayList<>();
+        targets.add(logFile);
+        if (masterLogFile != null && !pathsEqual(logFile, masterLogFile)) {
+            targets.add(masterLogFile);
+        }
 
-            WRITER = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8,
-                    StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+        List<WriterTarget> openTargets = new ArrayList<>();
+
+        try {
+            for (Path target : targets) {
+                Path normalized = normalizePath(target);
+                Path parent = normalized.getParent();
+                if (parent != null) Files.createDirectories(parent);
+                BufferedWriter writer = Files.newBufferedWriter(normalized, StandardCharsets.UTF_8,
+                        StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+                openTargets.add(new WriterTarget(normalized, writer));
+            }
+
+            WRITERS = openTargets.toArray(WriterTarget[]::new);
+            CATEGORY_WRITERS.clear();
 
             ECHO_MINIMAL = echoMinimalToStderr;
 
@@ -94,9 +129,75 @@ public final class Logger {
             // If we fail to initialize, fall back to original streams and report once.
             safePrintToOriginals("Logger initialization failed: " + ioe);
             restoreSystemStreams();
-            closeQuietly(WRITER);
-            WRITER = null;
+            for (WriterTarget target : openTargets) closeQuietly(target.writer);
+            WRITERS = NO_WRITERS;
             throw new RuntimeException(ioe);
+        }
+    }
+
+    /** Add an additional mirror target that will receive all log output. */
+    public static synchronized void addMirror(Path extraFile) {
+        Objects.requireNonNull(extraFile, "extraFile");
+        if (!STARTED.get()) {
+            throw new IllegalStateException("Logger has not been started");
+        }
+
+        Path normalized = normalizePath(extraFile);
+        for (WriterTarget target : WRITERS) {
+            if (pathsEqual(target.path, normalized)) {
+                return; // already logging to this file
+            }
+        }
+
+        try {
+            Path parent = normalized.getParent();
+            if (parent != null) Files.createDirectories(parent);
+            BufferedWriter writer = Files.newBufferedWriter(normalized, StandardCharsets.UTF_8,
+                    StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+            WRITERS = append(WRITERS, new WriterTarget(normalized, writer));
+        } catch (IOException ioe) {
+            safePrintToOriginals("Logger addMirror failed: " + ioe);
+        }
+    }
+
+    /**
+     * Register a category-specific log file. Messages logged with that category are mirrored to the
+     * provided file in addition to the main outputs.
+     */
+    public static synchronized void addCategoryTarget(String category, Path file) {
+        Objects.requireNonNull(category, "category");
+        Objects.requireNonNull(file, "file");
+        if (!STARTED.get()) {
+            throw new IllegalStateException("Logger has not been started");
+        }
+
+        String key = normalizeCategory(category);
+        if (key.isEmpty()) {
+            throw new IllegalArgumentException("category cannot be blank");
+        }
+        Path normalized = normalizePath(file);
+        if (isPrimaryWriter(normalized)) {
+            WriterTarget previous = CATEGORY_WRITERS.remove(key);
+            if (previous != null) {
+                closeQuietly(previous.writer);
+            }
+            return;
+        }
+
+        BufferedWriter writer = null;
+        try {
+            Path parent = normalized.getParent();
+            if (parent != null) Files.createDirectories(parent);
+            writer = Files.newBufferedWriter(normalized, StandardCharsets.UTF_8,
+                    StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+            WriterTarget replacement = new WriterTarget(normalized, writer);
+            WriterTarget previous = CATEGORY_WRITERS.put(key, replacement);
+            if (previous != null && previous.writer != replacement.writer) {
+                closeQuietly(previous.writer);
+            }
+        } catch (IOException ioe) {
+            closeQuietly(writer);
+            safePrintToOriginals("Logger addCategoryTarget failed: " + ioe);
         }
     }
 
@@ -108,8 +209,15 @@ public final class Logger {
             restoreSystemStreams();
             uninstallJulBridge();
         } finally {
-            closeQuietly(WRITER);
-            WRITER = null;
+            WriterTarget[] writers = WRITERS;
+            WRITERS = NO_WRITERS;
+            for (WriterTarget target : writers) {
+                closeQuietly(target.writer);
+            }
+            for (WriterTarget target : CATEGORY_WRITERS.values()) {
+                closeQuietly(target.writer);
+            }
+            CATEGORY_WRITERS.clear();
             STARTED.set(false);
         }
     }
@@ -173,7 +281,9 @@ public static void quietJavaFX(boolean devMode) {
     // --- Internals ----------------------------------------------------------
 
     private static final AtomicBoolean STARTED = new AtomicBoolean(false);
-    private static volatile BufferedWriter WRITER;
+    private static final WriterTarget[] NO_WRITERS = new WriterTarget[0];
+    private static volatile WriterTarget[] WRITERS = NO_WRITERS;
+    private static final ConcurrentHashMap<String, WriterTarget> CATEGORY_WRITERS = new ConcurrentHashMap<>();
     private static volatile boolean ECHO_MINIMAL;
 
     private static volatile PrintStream ORIGINAL_OUT;
@@ -181,6 +291,10 @@ public static void quietJavaFX(boolean devMode) {
 
     private static final DateTimeFormatter TS =
             DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+
+    private static final StackWalker WALKER = StackWalker.getInstance(Set.of(
+            StackWalker.Option.RETAIN_CLASS_REFERENCE,
+            StackWalker.Option.SHOW_REFLECT_FRAMES));
 
     /** Captures lines written to System.out/err and logs them. */
     private static final class LineCaptureStream extends OutputStream {
@@ -238,7 +352,7 @@ public static void quietJavaFX(boolean devMode) {
                 msg = r.getMessage();
             }
             StackTraceElement caller = fromLogRecord(r);
-            writeFormatted(r.getLevel(), caller, msg);
+            writeFormatted(r.getLevel(), caller, msg, null);
             if (r.getThrown() != null) {
                 logThrowable(r.getLevel(), "JUL Throwable", r.getThrown());
             }
@@ -291,7 +405,7 @@ private static void installJulBridge() {
                 while ((line = br.readLine()) != null) {
                     // Fake a caller as "process.<name>.<stream>"
                     StackTraceElement caller = new StackTraceElement("process." + name, stream, name, -1);
-                    writeFormatted(lvl, caller, line);
+                    writeFormatted(lvl, caller, line, null);
                 }
             } catch (IOException e) {
                 logThrowable(Level.WARNING, "Process stream pump error (" + name + "/" + stream + ")", e);
@@ -302,8 +416,12 @@ private static void installJulBridge() {
     }
 
     private static void logLine(Level level, String msg) {
+        logLine(level, null, msg);
+    }
+
+    private static void logLine(Level level, String category, String msg) {
         StackTraceElement caller = findCaller();
-        writeFormatted(level, caller, msg);
+        writeFormatted(level, caller, msg, category);
     }
 
     private static void logThrowable(Level level, String prefix, Throwable t) {
@@ -311,16 +429,18 @@ private static void installJulBridge() {
         StringWriter sw = new StringWriter();
         t.printStackTrace(new PrintWriter(sw));
         StackTraceElement caller = findCaller();
-        writeFormatted(level, caller, prefix);
+        writeFormatted(level, caller, prefix, null);
         // Print stack trace lines with same header
         String[] lines = sw.toString().split("\\R");
         for (String ln : lines) {
-            writeFormatted(level, caller, ln);
+            writeFormatted(level, caller, ln, null);
         }
     }
 
-    private static void writeFormatted(Level level, StackTraceElement caller, String message) {
-        if (WRITER == null) return;
+    private static void writeFormatted(Level level, StackTraceElement caller, String message, String category) {
+        WriterTarget[] writers = WRITERS;
+        WriterTarget categoryTarget = category == null ? null : CATEGORY_WRITERS.get(normalizeCategory(category));
+        if (writers.length == 0 && categoryTarget == null) return;
         String ts = TS.format(LocalDateTime.now());
         String lvl = padLevel(mapLevelName(level));
         String loc = formatLocation(caller);
@@ -328,16 +448,35 @@ private static void installJulBridge() {
         synchronized (Logger.class) {
             try {
                 for (String line : lines) {
-                    WRITER.write(ts);
-                    WRITER.write(" | ");
-                    WRITER.write(lvl);
-                    WRITER.write(" | ");
-                    WRITER.write(loc);
-                    WRITER.write(" | ");
-                    WRITER.write(line);
-                    WRITER.write("\n");
+                    for (WriterTarget target : writers) {
+                        BufferedWriter writer = target.writer;
+                        writer.write(ts);
+                        writer.write(" | ");
+                        writer.write(lvl);
+                        writer.write(" | ");
+                        writer.write(loc);
+                        writer.write(" | ");
+                        writer.write(line);
+                        writer.write('\n');
+                    }
+                    if (categoryTarget != null && !isPrimaryWriter(categoryTarget.path)) {
+                        BufferedWriter writer = categoryTarget.writer;
+                        writer.write(ts);
+                        writer.write(" | ");
+                        writer.write(lvl);
+                        writer.write(" | ");
+                        writer.write(loc);
+                        writer.write(" | ");
+                        writer.write(line);
+                        writer.write('\n');
+                    }
                 }
-                WRITER.flush();
+                for (WriterTarget target : writers) {
+                    target.writer.flush();
+                }
+                if (categoryTarget != null && !isPrimaryWriter(categoryTarget.path)) {
+                    categoryTarget.writer.flush();
+                }
             } catch (IOException ioe) {
                 safePrintToOriginals("Logger write failed: " + ioe);
             }
@@ -346,7 +485,14 @@ private static void installJulBridge() {
 
     private static void flushWriter() {
         synchronized (Logger.class) {
-            try { if (WRITER != null) WRITER.flush(); } catch (IOException ignored) {}
+            WriterTarget[] writers = WRITERS;
+            for (WriterTarget target : writers) {
+                try { target.writer.flush(); } catch (IOException ignored) {}
+            }
+            for (WriterTarget target : CATEGORY_WRITERS.values()) {
+                if (target == null) continue;
+                try { target.writer.flush(); } catch (IOException ignored) {}
+            }
         }
     }
 
@@ -365,6 +511,14 @@ private static void installJulBridge() {
         try { if (c != null) c.close(); } catch (IOException ignored) {}
     }
 
+    private static WriterTarget[] append(WriterTarget[] existing, WriterTarget extra) {
+        int len = existing.length;
+        WriterTarget[] out = new WriterTarget[len + 1];
+        System.arraycopy(existing, 0, out, 0, len);
+        out[len] = extra;
+        return out;
+    }
+
     private static void safePrintToOriginals(String s) {
         try {
             if (ORIGINAL_ERR != null) ORIGINAL_ERR.println(s);
@@ -374,6 +528,29 @@ private static void installJulBridge() {
     }
 
     // --- Helpers: formatting & caller detection -----------------------------
+
+    private static boolean isPrimaryWriter(Path path) {
+        for (WriterTarget target : WRITERS) {
+            if (pathsEqual(target.path, path)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean pathsEqual(Path a, Path b) {
+        if (a == b) return true;
+        if (a == null || b == null) return false;
+        return normalizePath(a).equals(normalizePath(b));
+    }
+
+    private static Path normalizePath(Path path) {
+        return path.toAbsolutePath().normalize();
+    }
+
+    private static String normalizeCategory(String category) {
+        return category.trim().toLowerCase(Locale.ROOT);
+    }
 
     private static String padLevel(String s) {
         // Exactly 7 chars right-padded (e.g., "INFO   ", "WARNING", "SEVERE ")
@@ -419,25 +596,53 @@ private static void installJulBridge() {
     }
 
     private static StackTraceElement findCaller() {
+        StackTraceElement fallback = fallbackCaller();
+        return WALKER.walk(stream -> stream
+                .filter(frame -> {
+                    String cn = frame.getClassName();
+                    return !isLoggerFrame(cn) && !isInfrastructureFrame(cn);
+                })
+                .findFirst()
+                .map(StackWalker.StackFrame::toStackTraceElement)
+                .orElse(fallback));
+    }
+
+    private static StackTraceElement fallbackCaller() {
         StackTraceElement[] st = Thread.currentThread().getStackTrace();
         boolean seenLogger = false;
         for (StackTraceElement e : st) {
             String cn = e.getClassName();
-            if (cn.equals(Logger.class.getName()) ||
-                cn.startsWith("java.io.PrintStream") ||
-                cn.startsWith("java.lang.Thread") ||
-                cn.startsWith("jdk.internal") ||
-                cn.startsWith("java.util.logging"))
-            {
-                seenLogger = true;
+            if (!seenLogger) {
+                if (isLoggerFrame(cn)) {
+                    seenLogger = true;
+                }
                 continue;
             }
-            if (seenLogger) {
-                // First frame outside logging machinery
-                return e;
+            if (isLoggerFrame(cn) || isInfrastructureFrame(cn)) {
+                continue;
             }
+            return e;
         }
         return st.length > 0 ? st[st.length - 1] : null;
+    }
+
+    private static boolean isLoggerFrame(String className) {
+        if (className == null) return false;
+        if (className.equals(Logger.class.getName())) return true;
+        return className.startsWith(Logger.class.getName() + "$");
+    }
+
+    private static boolean isInfrastructureFrame(String className) {
+        if (className == null) return false;
+        return className.startsWith("java.io.PrintStream") ||
+               className.startsWith("java.lang.Thread") ||
+               className.startsWith("java.util.logging") ||
+               className.startsWith("jdk.internal") ||
+               className.startsWith("java.lang.reflect") ||
+               className.startsWith("jdk.internal.reflect") ||
+               className.startsWith("sun.reflect") ||
+               className.startsWith("java.lang.invoke") ||
+               className.startsWith("java.security.AccessController");
     }
 
     private static void setJulLoggerLevel(String name, Level level) {
@@ -446,7 +651,9 @@ private static void installJulBridge() {
         } catch (Exception ignored) { /* best-effort */ }
     }
 
-     // --- Convenience methods for app code ----------------------------------
+    private record WriterTarget(Path path, BufferedWriter writer) {}
+
+    // --- Convenience methods for app code ----------------------------------
 
     public static void log(String msg) {
         logLine(Level.INFO, msg);
@@ -462,6 +669,27 @@ private static void installJulBridge() {
 
     public static void error(String msg) {
         logLine(Level.SEVERE, msg);
+    }
+
+    /** True once {@link #start(Path)} has completed successfully. */
+    public static boolean isActive() {
+        return STARTED.get();
+    }
+
+    public static void log(String category, String msg) {
+        logLine(Level.INFO, category, msg);
+    }
+
+    public static void info(String category, String msg) {
+        logLine(Level.INFO, category, msg);
+    }
+
+    public static void warn(String category, String msg) {
+        logLine(Level.WARNING, category, msg);
+    }
+
+    public static void error(String category, String msg) {
+        logLine(Level.SEVERE, category, msg);
     }
 
 

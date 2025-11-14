@@ -3,6 +3,12 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
+# Demonstrate how to keep UI log output organized when using the combined
+# launcher. The UI script will reuse these values when it runs.
+LOG_BASE="${LOG_BASE:-$ROOT/logs}"
+export GAUGES_LOG_DIR="${GAUGES_LOG_DIR:-$LOG_BASE/ui}"
+export GAUGES_LOG_MASTER="${GAUGES_LOG_MASTER:-$LOG_BASE/master.log}"
+
 # 1) Start backend in the background
 "$ROOT/scripts/backend.sh" &
 BACK_PID=$!

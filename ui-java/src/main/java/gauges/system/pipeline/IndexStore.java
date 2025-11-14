@@ -7,6 +7,9 @@ import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.function.Consumer;
+import java.util.logging.Level;
+
+import gauges.system.Logger;
 
 /**
  * IndexStore
@@ -21,6 +24,8 @@ import java.util.function.Consumer;
  */
 public final class IndexStore {
 
+    private static final String PIPE_CATEGORY = "data-pipline";
+
     private final ConcurrentHashMap<String, DataPoint> data = new ConcurrentHashMap<>();
     private final AtomicLong ver = new AtomicLong(0L);
 
@@ -29,6 +34,7 @@ public final class IndexStore {
 
     public IndexStore() {
         log("[IndexStore] constructed");
+        logPipeline(Level.INFO, "[store] constructed");
     }
 
     /** Optional: set a callback invoked after each update (key of last-updated or \"*\"). */
@@ -78,6 +84,10 @@ public final class IndexStore {
         for (Map.Entry<String, DataPoint> e : snap.entrySet()) {
             log("  " + e.getKey() + "=" + e.getValue());
         }
+        logPipeline(Level.INFO, "[store] version=" + vnow + ", size=" + snap.size());
+        for (Map.Entry<String, DataPoint> e : snap.entrySet()) {
+            logPipeline(Level.INFO, "[store]   " + e.getKey() + "=" + e.getValue());
+        }
 
         Consumer<String> cb = onChange;
         if (cb != null) {
@@ -106,7 +116,9 @@ public final class IndexStore {
                     var toMap = any.getClass().getMethod("toMap");
                     parsed = (Map) toMap.invoke(any);
                 } catch (Throwable t) {
-                    log("[IndexStore][Warn] JsonConfig.parse did not return Map and has no toMap(); ignoring String snapshot");
+                    String warning = "[IndexStore][Warn] JsonConfig.parse did not return Map and has no toMap(); ignoring String snapshot";
+                    log(warning);
+                    logPipeline(Level.WARNING, "[store] " + warning);
                     return;
                 }
             }
@@ -122,11 +134,18 @@ public final class IndexStore {
             applySnapshot(adapted);
 
         } catch (ClassNotFoundException cnf) {
-            log("[IndexStore][Warn] gauges.helpers.JsonConfig not found; applySnapshot(String) is a no-op.");
+            String warning = "[IndexStore][Warn] gauges.helpers.JsonConfig not found; applySnapshot(String) is a no-op.";
+            log(warning);
+            logPipeline(Level.WARNING, "[store] " + warning);
         } catch (NoSuchMethodException nsm) {
-            log("[IndexStore][Warn] JsonConfig.parse(String) not found; applySnapshot(String) is a no-op.");
+            String warning = "[IndexStore][Warn] JsonConfig.parse(String) not found; applySnapshot(String) is a no-op.";
+            log(warning);
+            logPipeline(Level.WARNING, "[store] " + warning);
         } catch (Throwable t) {
-            log("[IndexStore][Error] Failed to parse String snapshot: " + t.getClass().getSimpleName() + " → " + t.getMessage());
+            String error = "[IndexStore][Error] Failed to parse String snapshot: "
+                    + t.getClass().getSimpleName() + " → " + t.getMessage();
+            log(error);
+            logPipeline(Level.SEVERE, "[store] " + error);
         }
     }
 
@@ -155,12 +174,36 @@ public final class IndexStore {
 
     private static void log(String msg) {
         // Prefer the central Logger if available, else fallback to stdout (which Logger captures anyway).
-        try {
-            Class<?> logger = Class.forName("gauges.system.Logger");
-            var m = logger.getMethod("info", String.class);
-            m.invoke(null, msg);
-        } catch (Throwable ignore) {
+        if (isLoggerActive()) {
+            Logger.info(msg);
+        } else {
             System.out.println(msg);
+        }
+    }
+
+    private static void logPipeline(Level level, String message) {
+        if (isLoggerActive()) {
+            if (level == Level.SEVERE) {
+                Logger.error(PIPE_CATEGORY, message);
+            } else if (level == Level.WARNING) {
+                Logger.warn(PIPE_CATEGORY, message);
+            } else {
+                Logger.info(PIPE_CATEGORY, message);
+            }
+        } else {
+            if (level == Level.SEVERE) {
+                System.err.println(message);
+            } else {
+                System.out.println(message);
+            }
+        }
+    }
+
+    private static boolean isLoggerActive() {
+        try {
+            return Logger.isActive();
+        } catch (Throwable ignore) {
+            return false;
         }
     }
 

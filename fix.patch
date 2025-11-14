@@ -1,59 +1,212 @@
 (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
-diff --git a/ui-java/src/main/java/gauges/system/Logger.java b/ui-java/src/main/java/gauges/system/Logger.java
-index 77321ec6503acf70f36ff7a77a34738f3a982d35..f905c78ce16a550835a44110d8e943f494b2a1ed 100644
---- a/ui-java/src/main/java/gauges/system/Logger.java
-+++ b/ui-java/src/main/java/gauges/system/Logger.java
-@@ -649,46 +649,51 @@ private static void installJulBridge() {
+diff --git a/ui-java/src/main/java/gauges/system/pipeline/IndexFetcher.java b/ui-java/src/main/java/gauges/system/pipeline/IndexFetcher.java
+index f3b442e7d87e56e1ce09f3f2fd212010c31b1004..af7b34ca1abb709a4ff0b78b08a05a86c31febb1 100644
+--- a/ui-java/src/main/java/gauges/system/pipeline/IndexFetcher.java
++++ b/ui-java/src/main/java/gauges/system/pipeline/IndexFetcher.java
+@@ -1,98 +1,99 @@
+ package gauges.system.pipeline;
+ 
+ import java.io.IOException;
+ import java.net.URI;
+ import java.net.http.HttpClient;
+ import java.net.http.HttpRequest;
+ import java.net.http.HttpResponse;
+ import java.nio.charset.StandardCharsets;
+ import java.time.Duration;
+ import java.util.Objects;
+ import java.util.concurrent.Executors;
+ import java.util.concurrent.ScheduledExecutorService;
+ import java.util.concurrent.ScheduledFuture;
+ import java.util.concurrent.TimeUnit;
+ import java.util.concurrent.atomic.AtomicBoolean;
+ import java.util.function.Consumer;
++import java.util.logging.Level;
+ 
+ import gauges.system.Logger;
+ 
+ /**
+  * IndexFetcher
+  *
+  * Polls a JSON index from a backend endpoint at a fixed period and forwards the body to a consumer.
+  * Clean version with minimal logging.
+  */
+ public final class IndexFetcher {
+ 
+     private static final String PIPE_CATEGORY = "data-pipeline";
+ 
+     private final URI endpoint;
+     private final Duration period;
+     private final Duration timeout;
+     private final Consumer<String> onSnapshot;
+ 
+     private final HttpClient client;
+     private final ScheduledExecutorService scheduler;
+ 
+     private volatile boolean running;
+     private volatile boolean stopping;
+     private volatile ScheduledFuture<?> task;
+     private final AtomicBoolean inFlight = new AtomicBoolean(false);
+     private volatile long tickCount = 0L;
+ 
+     public IndexFetcher(URI endpoint, Duration period, Duration timeout, Consumer<String> onSnapshot) {
+         this.endpoint   = Objects.requireNonNull(endpoint, "endpoint");
+         this.period     = Objects.requireNonNull(period, "period");
+         this.timeout    = Objects.requireNonNull(timeout, "timeout");
+         this.onSnapshot = Objects.requireNonNull(onSnapshot, "onSnapshot");
+ 
+         this.client = HttpClient.newBuilder().connectTimeout(timeout).build();
+         this.scheduler = Executors.newSingleThreadScheduledExecutor(r -> {
+             Thread t = new Thread(r, "IndexFetcher");
+             t.setDaemon(true);
+             return t;
+         });
+ 
+-        Logger.info(PIPE_CATEGORY, "[fetcher] constructed endpoint=" + endpoint + ", period="
++        info("[fetcher] constructed endpoint=" + endpoint + ", period="
+                 + period.toMillis() + "ms, timeout=" + timeout.toMillis() + "ms");
+     }
+ 
+     public synchronized void start() {
+         if (running) return;
+         stopping = false;
+         running  = true;
+-        Logger.info(PIPE_CATEGORY, "[fetcher] start requested");
++        info("[fetcher] start requested");
+         task = scheduler.scheduleAtFixedRate(this::safeFetchOnce, 0L, period.toMillis(), TimeUnit.MILLISECONDS);
+     }
+ 
+     public synchronized void stop() {
+         if (!running && !stopping) return;
+         stopping = true;
+         running  = false;
+-        Logger.info(PIPE_CATEGORY, "[fetcher] stop requested");
++        info("[fetcher] stop requested");
+         if (task != null) {
+             task.cancel(true);
+             task = null;
+         }
+         scheduler.shutdownNow();
          try {
-             java.util.logging.Logger.getLogger(name).setLevel(level);
-         } catch (Exception ignored) { /* best-effort */ }
+             scheduler.awaitTermination(Math.max(1, timeout.toMillis() / 1000), TimeUnit.SECONDS);
+         } catch (InterruptedException ignored) {
+             Thread.currentThread().interrupt();
+         }
      }
  
-     private record WriterTarget(Path path, BufferedWriter writer) {}
- 
-     // --- Convenience methods for app code ----------------------------------
- 
-     public static void log(String msg) {
-         logLine(Level.INFO, msg);
+     private void safeFetchOnce() {
+         if (!running) return;
+         if (!inFlight.compareAndSet(false, true)) return;
+         long seq = tickCount + 1;
+         try {
+             fetchOnce();
+         } catch (Throwable t) {
+             logFailure(seq, t);
+         } finally {
+             inFlight.set(false);
+         }
      }
  
-     public static void info(String msg) {
-         logLine(Level.INFO, msg);
+@@ -109,63 +110,97 @@ public final class IndexFetcher {
+         try {
+             HttpResponse<byte[]> resp = client.send(req, HttpResponse.BodyHandlers.ofByteArray());
+             int code = resp.statusCode();
+             byte[] body = resp.body();
+             int len = (body == null ? 0 : body.length);
+             String text = (len > 0) ? new String(body, StandardCharsets.UTF_8) : "";
+ 
+             if (code >= 200 && code < 300 && len > 0) {
+                 try {
+                     onSnapshot.accept(text);
+                 } catch (Throwable ignored) { }
+             }
+             logSnapshot(seq, code, len, text);
+ 
+         } catch (InterruptedException ie) {
+             Thread.currentThread().interrupt();
+             logFailure(seq, ie);
+         } catch (IOException ignored) {
+             logFailure(seq, ignored);
+         } catch (Throwable ignored) {
+             logFailure(seq, ignored);
+         }
      }
  
-     public static void warn(String msg) {
-         logLine(Level.WARNING, msg);
+     private void logSnapshot(long tick, int status, int length, String body) {
+-        Logger.info(PIPE_CATEGORY, "[fetcher] tick=" + tick + ", status=" + status + ", length=" + length);
++        info("[fetcher] tick=" + tick + ", status=" + status + ", length=" + length);
+         if (body != null && !body.isEmpty()) {
+-            Logger.info(PIPE_CATEGORY, "[fetcher] body:\n" + indent(body));
++            info("[fetcher] body:\n" + indent(body));
+         }
      }
  
-     public static void error(String msg) {
-         logLine(Level.SEVERE, msg);
+     private void logFailure(long tick, Throwable error) {
+         String message = "[fetcher][error] tick=" + tick + ", error=" + describe(error);
+-        Logger.error(PIPE_CATEGORY, message);
++        error(message);
+         if (error != null) {
+-            Logger.error(PIPE_CATEGORY, stackTrace(error));
++            error(stackTrace(error));
+         }
      }
  
-+    /** True once {@link #start(Path)} has completed successfully. */
-+    public static boolean isActive() {
-+        return STARTED.get();
+     private static String indent(String body) {
+         return body.replaceAll("(?m)^", "  ");
+     }
+ 
+     private static String describe(Throwable t) {
+         if (t == null) return "<null>";
+         return t.getClass().getSimpleName() + ": " + t.getMessage();
+     }
+ 
+     private static String stackTrace(Throwable t) {
+         if (t == null) return "";
+         StringBuilder sb = new StringBuilder();
+         sb.append(t);
+         for (StackTraceElement el : t.getStackTrace()) {
+             sb.append(System.lineSeparator()).append("    at ").append(el);
+         }
+         Throwable cause = t.getCause();
+         if (cause != null && cause != t) {
+             sb.append(System.lineSeparator()).append("Caused by: ").append(stackTrace(cause));
+         }
+         return sb.toString();
+     }
++
++    private static void info(String message) {
++        log(Level.INFO, message);
 +    }
 +
-     public static void log(String category, String msg) {
-         logLine(Level.INFO, category, msg);
-     }
- 
-     public static void info(String category, String msg) {
-         logLine(Level.INFO, category, msg);
-     }
- 
-     public static void warn(String category, String msg) {
-         logLine(Level.WARNING, category, msg);
-     }
- 
-     public static void error(String category, String msg) {
-         logLine(Level.SEVERE, category, msg);
-     }
- 
- 
-     private Logger() {}
++    private static void error(String message) {
++        log(Level.SEVERE, message);
++    }
++
++    private static void log(Level level, String message) {
++        if (isLoggerActive()) {
++            if (level == Level.SEVERE) {
++                Logger.error(PIPE_CATEGORY, message);
++            } else if (level == Level.WARNING) {
++                Logger.warn(PIPE_CATEGORY, message);
++            } else {
++                Logger.info(PIPE_CATEGORY, message);
++            }
++        } else {
++            if (level == Level.SEVERE) {
++                System.err.println(message);
++            } else {
++                System.out.println(message);
++            }
++        }
++    }
++
++    private static boolean isLoggerActive() {
++        try {
++            return Logger.isActive();
++        } catch (Throwable ignore) {
++            return false;
++        }
++    }
  }
- 
  
  
 EOF

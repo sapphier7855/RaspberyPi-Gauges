@@ -23,13 +23,14 @@ elif MODE == "static":
 else:
     raise RuntimeError("MODE must be 'static' or 'simulated'")
 
-
+current_value2 = 1
+Current_value3 = 100
 # --- Registry of values (functions that return a float or int) ---
 # Add new keys here as you grow the system
 value_sources = {
     "current": lambda: float(current_value.value),
-    # "rpm": lambda: float(rpm_source.value),
-    # "throttle": lambda: float(throttle_source.value),
+    "current2": lambda: float(current_value2),
+    "current3": lambda: float(Current_value3),
 }
 
 

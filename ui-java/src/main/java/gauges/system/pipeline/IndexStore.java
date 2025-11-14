@@ -8,12 +8,15 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.function.Consumer;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 /**
  * IndexStore
  *
  * Thread-safe store for the live snapshot coming from the backend.
  * - applySnapshot(Map<String, DataPoint>) replaces/updates values
- * - (optional) applySnapshot(String) parses JSON via gauges.helpers.JsonConfig if available
+ * - applySnapshot(String) parses JSON text directly (using Jackson) and adapts it to DataPoints
  * - setOnChange(Consumer<String>) notifies with the last-updated key (or "*" for bulk)
  * - version() increments on every snapshot apply
  *
@@ -28,10 +31,63 @@ public final class IndexStore {
     private volatile Consumer<String> onChange;
 
     private static final PipelineDebugLog PIPELINE_LOG = PipelineDebugLog.shared();
+    private static final ObjectMapper JSON = new ObjectMapper();
+    private static final TypeReference<Map<String, Object>> MAP_OF_OBJECT =
+            new TypeReference<Map<String, Object>>() { };
 
     public IndexStore() {
         log("[IndexStore] constructed");
         PIPELINE_LOG.info("[IndexStore] constructed");
+    }
+
+    /**
+     * Convenience overload used by BootCoordinator: accept raw JSON text, parse it into a
+     * Map<String, Object>, adapt entries into DataPoint instances, then delegate to the map
+     * variant. Failures are logged so the caller can see why nothing was stored.
+     */
+    public void applySnapshot(String jsonText) {
+        if (jsonText == null) {
+            PIPELINE_LOG.warn("[IndexStore] applySnapshot(String) called with null text");
+            return;
+        }
+
+        String trimmed = jsonText.trim();
+        if (trimmed.isEmpty()) {
+            PIPELINE_LOG.warn("[IndexStore] applySnapshot(String) ignored empty snapshot");
+            return;
+        }
+
+        Map<String, Object> raw;
+        try {
+            raw = JSON.readValue(trimmed, MAP_OF_OBJECT);
+        } catch (Exception parseError) {
+            PIPELINE_LOG.error("[IndexStore] failed to parse snapshot JSON", parseError);
+            return;
+        }
+
+        if (raw.isEmpty()) {
+            PIPELINE_LOG.warn("[IndexStore] parsed snapshot was empty");
+            return;
+        }
+
+        Map<String, DataPoint> adapted = new LinkedHashMap<>();
+        for (Map.Entry<String, Object> entry : raw.entrySet()) {
+            String key = String.valueOf(entry.getKey());
+            DataPoint value = DataPoint.fromUnknown(entry.getValue());
+            if (value != null) {
+                adapted.put(key, value);
+            } else {
+                PIPELINE_LOG.warn("[IndexStore] dropped null datapoint for key=" + key);
+            }
+        }
+
+        if (adapted.isEmpty()) {
+            PIPELINE_LOG.warn("[IndexStore] no usable datapoints after adapting snapshot");
+            return;
+        }
+
+        PIPELINE_LOG.info("[IndexStore] applying parsed snapshot entries=" + adapted.size());
+        applySnapshot(adapted);
     }
 
     /** Optional: set a callback invoked after each update (key of last-updated or \"*\"). */
@@ -90,12 +146,6 @@ public final class IndexStore {
             try { cb.accept(lastKey); } catch (Throwable ignore) {}
         }
     }
-
-    /**
-     * Optional overload: If present, BootCoordinator may call this directly.
-     * We attempt to parse JSON via gauges.helpers.JsonConfig.parse(String). If that helper
-     * isn’t available, this is a no-op (the BootCoordinator’s compat path can handle Map parsing).
-     */
 
     /** Get a DataPoint by key (null if missing). */
     public DataPoint get(String key) {

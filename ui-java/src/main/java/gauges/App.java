@@ -1,5 +1,7 @@
 package gauges;
 
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
@@ -16,9 +18,46 @@ public class App extends Application {
     public static void main(String[] args) {
         log = resolveLogFlag(args, log);
         if (log) {
-            Path logFile = resolvePath("gauges.log.file", "GAUGES_LOG_FILE", "logs/app.log");
-            Path masterLog = resolvePath("gauges.log.master", "GAUGES_LOG_MASTER", "logs/master.log");
+            Path logFile;
+            Path masterLog;
+            Path sessionDir = null;
+
+            Path explicitLog = resolveOptionalPath("gauges.log.file", "GAUGES_LOG_FILE");
+            Path explicitMaster = resolveOptionalPath("gauges.log.master", "GAUGES_LOG_MASTER");
+            Path explicitDir = resolveOptionalPath("gauges.log.dir", "GAUGES_LOG_DIR");
+
+            Path baseDir = explicitDir != null ? explicitDir : Paths.get("logs");
+
+            try {
+                if (explicitLog != null) {
+                    logFile = explicitLog;
+                } else {
+                    sessionDir = prepareSessionDirectory(baseDir);
+                    logFile = sessionDir.resolve("app.log");
+                }
+
+                if (explicitMaster != null) {
+                    masterLog = explicitMaster;
+                } else {
+                    Path masterBase = explicitDir != null
+                            ? baseDir
+                            : sessionDir != null ? sessionDir.getParent() : baseDir;
+                    if (masterBase == null) {
+                        masterBase = logFile.toAbsolutePath().getParent();
+                    }
+                    if (masterBase == null) {
+                        masterBase = Paths.get(".");
+                    }
+                    masterLog = masterBase.resolve("master.log");
+                }
+            } catch (IOException ioe) {
+                throw new RuntimeException("Failed to prepare log directory", ioe);
+            }
+
             Logger.start(logFile, masterLog, true);
+            if (sessionDir != null) {
+                System.out.println("[log] sessionDir=" + sessionDir);
+            }
             System.out.println("[log] file=" + logFile + ", master=" + masterLog);
             try { Logger.quietJavaFX(true); } catch (Throwable ignored) {}
         }
@@ -51,8 +90,9 @@ public class App extends Application {
         return defaultValue;
     }
 
-    private static Path resolvePath(String sysPropKey, String envKey, String defaultPath) {
-        String value = firstNonBlank(System.getProperty(sysPropKey), System.getenv(envKey), defaultPath);
+    private static Path resolveOptionalPath(String sysPropKey, String envKey) {
+        String value = firstNonBlank(System.getProperty(sysPropKey), System.getenv(envKey));
+        if (value == null) return null;
         return Paths.get(value);
     }
 
@@ -64,6 +104,23 @@ public class App extends Application {
             }
         }
         return null;
+    }
+
+    private static Path prepareSessionDirectory(Path baseDir) throws IOException {
+        Files.createDirectories(baseDir);
+
+        int counter = nextDirectoryIndex(baseDir);
+        Path session = baseDir.resolve("log-" + counter);
+        Files.createDirectories(session);
+        return session;
+    }
+
+    private static int nextDirectoryIndex(Path baseDir) throws IOException {
+        int candidate = 1;
+        while (Files.exists(baseDir.resolve("log-" + candidate))) {
+            candidate++;
+        }
+        return candidate;
     }
     private static Boolean parseBool(String s) {
         if (s == null) return null;

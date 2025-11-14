@@ -470,21 +470,37 @@ private static void installJulBridge() {
         boolean seenLogger = false;
         for (StackTraceElement e : st) {
             String cn = e.getClassName();
-            if (cn.equals(Logger.class.getName()) ||
-                cn.startsWith("java.io.PrintStream") ||
-                cn.startsWith("java.lang.Thread") ||
-                cn.startsWith("jdk.internal") ||
-                cn.startsWith("java.util.logging"))
-            {
-                seenLogger = true;
+            if (!seenLogger) {
+                if (isLoggerFrame(cn)) {
+                    seenLogger = true;
+                }
                 continue;
             }
-            if (seenLogger) {
-                // First frame outside logging machinery
-                return e;
+            if (isLoggerFrame(cn) || isInfrastructureFrame(cn)) {
+                continue;
             }
+            return e;
         }
         return st.length > 0 ? st[st.length - 1] : null;
+    }
+
+    private static boolean isLoggerFrame(String className) {
+        if (className == null) return false;
+        if (className.equals(Logger.class.getName())) return true;
+        return className.startsWith(Logger.class.getName() + "$");
+    }
+
+    private static boolean isInfrastructureFrame(String className) {
+        if (className == null) return false;
+        return className.startsWith("java.io.PrintStream") ||
+               className.startsWith("java.lang.Thread") ||
+               className.startsWith("java.util.logging") ||
+               className.startsWith("jdk.internal") ||
+               className.startsWith("java.lang.reflect") ||
+               className.startsWith("jdk.internal.reflect") ||
+               className.startsWith("sun.reflect") ||
+               className.startsWith("java.lang.invoke") ||
+               className.startsWith("java.security.AccessController");
     }
 
     private static void setJulLoggerLevel(String name, Level level) {

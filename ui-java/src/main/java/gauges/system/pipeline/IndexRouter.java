@@ -128,6 +128,9 @@ public final class IndexRouter {
     }
 
     private static void log(String msg) {
+        if (!debugLoggingEnabled()) {
+            return;
+        }
         try {
             Logger.info(msg);
         } catch (Throwable ignore) {
@@ -136,8 +139,19 @@ public final class IndexRouter {
     }
 
     private static void logAccess(String method, String key, Object value) {
+        if (!debugLoggingEnabled()) {
+            return;
+        }
         String message = "[IndexRouter][" + method + "] " + key + " -> " + String.valueOf(value);
         PIPELINE_LOG.info(message);
+    }
+
+    private static boolean debugLoggingEnabled() {
+        try {
+            return Logger.isEnabled();
+        } catch (Throwable ignore) {
+            return false;
+        }
     }
 }
 

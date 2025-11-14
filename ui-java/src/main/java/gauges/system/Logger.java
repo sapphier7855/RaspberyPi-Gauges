@@ -570,6 +570,15 @@ private static void installJulBridge() {
 
     // --- Convenience methods for app code ----------------------------------
 
+    /**
+     * Returns true when the logger has been started and has at least one active
+     * writer target. Used by auxiliary subsystems (e.g., data pipeline debug
+     * traces) to disable their noise when logging is globally off.
+     */
+    public static boolean isEnabled() {
+        return STARTED.get() && WRITERS.length > 0;
+    }
+
     public static void log(String msg) {
         logLine(Level.INFO, msg);
     }

@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 public class App extends Application {
 
     // Default OFF — can be overridden by args, -Dlog, or ENV LOG
-    private static boolean log = true;
+    private static boolean log = false;
 
     public static void main(String[] args) {
         log = resolveLogFlag(args, log);

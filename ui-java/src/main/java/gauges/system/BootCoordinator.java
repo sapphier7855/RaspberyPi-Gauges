@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 
+import gauges.system.Logger;
 import gauges.system.pipeline.IndexFetcher;
 import gauges.system.pipeline.IndexRouter;
 import gauges.system.pipeline.IndexStore;
@@ -100,7 +101,14 @@ public final class BootCoordinator {
                 }
         );
 
-        try { store.setOnChange(key -> System.out.println("[IndexStore] snapshot applied (key=" + key + ") v=" + store.version())); }
+        try {
+            store.setOnChange(key -> {
+                if (!isLoggingEnabled()) {
+                    return;
+                }
+                logInfo("[IndexStore] snapshot applied (key=" + key + ") v=" + store.version());
+            });
+        }
         catch (Throwable ignore) { }
 
         try {
@@ -152,7 +160,7 @@ public final class BootCoordinator {
         // If IndexStore has an overload that accepts String, use it directly.
         try {
             var m = IndexStore.class.getMethod("applySnapshot", String.class);
-            System.out.println("[Boot] Using IndexStore.applySnapshot(String) overload");
+            logInfo("[Boot] Using IndexStore.applySnapshot(String) overload");
             m.invoke(store, jsonText);
             return;
         } catch (NoSuchMethodException ignore) { }
@@ -209,9 +217,28 @@ public final class BootCoordinator {
         try {
             var m = IndexStore.class.getMethod("applySnapshot", java.util.Map.class);
             m.invoke(store, out);
-            System.out.println("[Boot] Applied snapshot via Map adapter: size=" + out.size());
+            logInfo("[Boot] Applied snapshot via Map adapter: size=" + out.size());
         } catch (NoSuchMethodException ex) {
             throw new IllegalStateException("IndexStore.applySnapshot(Map) not found; expected signature missing.");
+        }
+    }
+
+    private static void logInfo(String message) {
+        if (!isLoggingEnabled()) {
+            return;
+        }
+        try {
+            Logger.info(message);
+        } catch (Throwable ignore) {
+            // If the central logger cannot be used, silently drop the message to avoid console noise.
+        }
+    }
+
+    private static boolean isLoggingEnabled() {
+        try {
+            return Logger.isEnabled();
+        } catch (Throwable ignore) {
+            return false;
         }
     }
 

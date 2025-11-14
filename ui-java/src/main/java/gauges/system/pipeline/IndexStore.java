@@ -11,6 +11,8 @@ import java.util.function.Consumer;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import gauges.system.Logger;
+
 /**
  * IndexStore
  *
@@ -36,8 +38,10 @@ public final class IndexStore {
             new TypeReference<Map<String, Object>>() { };
 
     public IndexStore() {
-        log("[IndexStore] constructed");
-        PIPELINE_LOG.info("[IndexStore] constructed");
+        if (debugLoggingEnabled()) {
+            log("[IndexStore] constructed");
+            PIPELINE_LOG.info("[IndexStore] constructed");
+        }
     }
 
     /**
@@ -131,14 +135,16 @@ public final class IndexStore {
 
         long vnow = ver.incrementAndGet();
 
-        // --- Debug: print the FULL storage index (sorted) every time it’s updated ---
-        Map<String, DataPoint> snap = sortedCopy(data);
-        log("[IndexStore][Debug] snapshot applied, size=" + snap.size() + " v=" + vnow);
-        PIPELINE_LOG.info("[IndexStore][Debug] snapshot applied, size=" + snap.size() + " v=" + vnow);
-        for (Map.Entry<String, DataPoint> e : snap.entrySet()) {
-            String line = "  " + e.getKey() + "=" + e.getValue();
-            log(line);
-            PIPELINE_LOG.info(line);
+        if (debugLoggingEnabled()) {
+            // --- Debug: print the FULL storage index (sorted) every time it’s updated ---
+            Map<String, DataPoint> snap = sortedCopy(data);
+            log("[IndexStore][Debug] snapshot applied, size=" + snap.size() + " v=" + vnow);
+            PIPELINE_LOG.info("[IndexStore][Debug] snapshot applied, size=" + snap.size() + " v=" + vnow);
+            for (Map.Entry<String, DataPoint> e : snap.entrySet()) {
+                String line = "  " + e.getKey() + "=" + e.getValue();
+                log(line);
+                PIPELINE_LOG.info(line);
+            }
         }
 
         Consumer<String> cb = onChange;
@@ -171,6 +177,9 @@ public final class IndexStore {
     }
 
     private static void log(String msg) {
+        if (!debugLoggingEnabled()) {
+            return;
+        }
         // Prefer the central Logger if available, else fallback to stdout (which Logger captures anyway).
         try {
             Class<?> logger = Class.forName("gauges.system.Logger");
@@ -178,6 +187,14 @@ public final class IndexStore {
             m.invoke(null, msg);
         } catch (Throwable ignore) {
             System.out.println(msg);
+        }
+    }
+
+    private static boolean debugLoggingEnabled() {
+        try {
+            return Logger.isEnabled();
+        } catch (Throwable ignore) {
+            return false;
         }
     }
 

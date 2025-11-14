@@ -24,6 +24,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Consumer;
 
+import gauges.system.Logger;
+
 /**
  * IndexFetcher
  *
@@ -174,6 +176,9 @@ final class PipelineDebugLog {
     }
 
     private void log(String level, String message, Throwable error) {
+        if (!shouldLog()) {
+            return;
+        }
         if (message == null) {
             message = "";
         }
@@ -217,6 +222,10 @@ final class PipelineDebugLog {
         } catch (IOException ioe) {
             fallback("[PipelineDebugLog] failed to write to " + fileName + ": " + ioe);
         }
+    }
+
+    private static boolean shouldLog() {
+        return Logger.isEnabled();
     }
 
     private Path resolveFile() throws IOException {
